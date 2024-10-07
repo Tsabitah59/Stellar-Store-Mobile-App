@@ -38,7 +38,7 @@ class ProductTitle extends StatelessWidget {
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(
-                    "${product.price}",
+                    "IDR ${product.price}k",
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 24,

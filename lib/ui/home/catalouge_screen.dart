@@ -17,6 +17,13 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text(
+          "Hi, Zaa",
+          style: TextStyle(
+            color: secondaryColor,
+            fontWeight: FontWeight.bold
+          ),
+        ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0, 
@@ -38,7 +45,7 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
-              "Toys",
+              "Special Offer",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30

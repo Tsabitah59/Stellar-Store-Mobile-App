@@ -23,55 +23,55 @@ class Product {
 List<Product> product = [
   Product(
     id: 1,
-    title: "Office Code",
+    title: "Pink Rose",
     price: 234,
     size: 12,
     description: dummyText,
-    image: "assets/images/bag_1.png",
-    color: const Color(0xFF3D82AE)
+    image: "assets/images/flower_1.png",
+    color: const Color(0xFFD5A7C0)
     ),
 
   Product(
     id: 2,
-    title: "Belt Bag",
+    title: "Colorful Flower",
     price: 234,
     size: 8,
    description: dummyText,
-    image: "assets/images/bag_2.png",
-    color: const Color(0xFFD3A984)),
+    image: "assets/images/flower_2.png",
+    color: const Color(0xFFD5D3DA)),
   Product(
     id: 3,
-    title: "Hang Top",
+    title: "Rainbow Flower",
     price: 234,
     size: 10,
     description: dummyText,
-    image: "assets/images/bag_3.png",
-    color: const Color(0xFF989493)),
+    image: "assets/images/flower_3.png",
+    color: const Color(0xFFE6BEC7)),
   Product(
     id: 4,
-    title: "Old Fashion",
+    title: "Pink, Yellow, White Tulip",
     price: 234,
     size: 11,
     description: dummyText,
-    image: "assets/images/bag_4.png",
-    color: const Color(0xFFE6B398)),
+    image: "assets/images/flower_4.png",
+    color: const Color(0xFFCEB69E)),
   Product(
     id: 5,
-    title: "Office Code",
+    title: "Mix Flower",
     price: 234,
     size: 12,
     description: dummyText,
-    image: "assets/images/bag_5.png",
-    color: const Color(0xFFFB7883)),
+    image: "assets/images/flower_5.png",
+    color: const Color(0xFFFADCDF)),
   Product(
     id: 6,
-    title: "Office Code",
+    title: "White Flower",
     price: 234,
     size: 12,
     description: dummyText,
-    image: "assets/images/bag_6.png",
-    color: const Color(0xFFAEAEAE),
+    image: "assets/images/flower_6.png",
+    color: const Color.fromARGB(255, 198, 197, 189),
   ),
 ];
 
-String dummyText = "lorem ipsum dolor sit amet cundos amatizing elit wkwk.";
+String dummyText = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).";

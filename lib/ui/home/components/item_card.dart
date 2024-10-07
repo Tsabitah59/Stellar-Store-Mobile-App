@@ -39,7 +39,7 @@ class ItemCard extends StatelessWidget {
             ),
           ),
           Text(
-            "Rp. ${product.price}"
+            "IDR ${product.price}k"
           ),
         ],
       ),

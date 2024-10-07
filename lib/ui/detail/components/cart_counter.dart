@@ -22,7 +22,9 @@ class _CartCounterState extends State<CartCounter> {
                     topLeft: Radius.circular(20),
                     bottomLeft: Radius.circular(20)),
               ),
-              fixedSize: Size(30, 30)),
+              fixedSize: const Size(30, 30),
+              iconColor: textColor
+            ),
           onPressed: () {
             setState(() {
               if (numOfItems > 1) {
@@ -43,18 +45,21 @@ class _CartCounterState extends State<CartCounter> {
         ),
         OutlinedButton(
           style: OutlinedButton.styleFrom(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    bottomRight: Radius.circular(20)),
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20),
+                bottomRight: Radius.circular(20)
               ),
-              fixedSize: const Size(30, 30)),
+            ),
+            fixedSize: const Size(30, 30),
+            iconColor: textColor
+          ),  
           onPressed: () {
             setState(() {
               numOfItems++;
             });
           },
-          child: const Icon(Icons.remove),
+          child: const Icon(Icons.add),
         ),
       ],
     );

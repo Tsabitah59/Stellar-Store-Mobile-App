@@ -24,15 +24,15 @@ class ColorAndSize extends StatelessWidget {
               Row(
                 children: [
                   ColorPicker(
-                    color: Color(0xFF3D82AE), 
+                    color: Color(0xFFD5A7C0), 
                     isSelected: true
                   ),
                   ColorPicker(
-                    color: Color(0xFFF8C078), 
+                    color: Color(0xFFFBD197), 
                     isSelected: true
                   ),
                   ColorPicker(
-                    color: Color(0xFF989493), 
+                    color: Color(0xFFAAB8DB), 
                     isSelected: true
                   )
                 ],
