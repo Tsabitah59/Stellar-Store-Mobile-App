@@ -14,7 +14,13 @@ class ColorAndSize extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Color"),
+              SizedBox(width: 10),
+              Row(
+                children: [
+                  SizedBox(width: 6,),
+                  Text("Color"),
+                ],
+              ),
               Row(
                 children: [
                   ColorPicker(
@@ -36,20 +42,28 @@ class ColorAndSize extends StatelessWidget {
         ),
         Expanded(
           // Other way to show and modify the text
-          child: RichText(
-            text: TextSpan(
-              style: const TextStyle(color: textColor),
-              children: [
-                const TextSpan(text: "Size"),
-                TextSpan(
-                  text: "${product.size} cm",
-                  style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontWeight: FontWeight.bold)
-                )
-              ]
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Size",
+                style: TextStyle(color: textColor),
+              ),
+              RichText(
+                text: TextSpan(
+                  style: const TextStyle(color: textColor),
+                  children: [
+                    TextSpan(
+                      text: "${product.size} cm",
+                      style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontWeight: FontWeight.bold)
+                    )
+                  ]
+                ),
+              ),
+            ],
           )
         )
       ],
@@ -66,9 +80,9 @@ class ColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(2.5),
-      width: 10,
-      height: 10,
+      margin: const EdgeInsets.all(4),
+      width: 20,
+      height: 20,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_store/const.dart';
+import 'package:stellar_store/ui/home/catalouge_screen.dart';
 import 'package:stellar_store/ui/home/components/categories.dart';
 import 'package:stellar_store/ui/splash/components/splash_content.dart';
 
@@ -115,7 +116,7 @@ class _BodyState extends State<Body> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Categories()
+                                  builder: (context) => const CatalougeScreen()
                                 )
                               );
                             } else {

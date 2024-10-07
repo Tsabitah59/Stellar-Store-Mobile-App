@@ -19,7 +19,7 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        elevation: 0,
+        elevation: 0, 
         actions: [
           IconButton(
             onPressed: () {}, 
@@ -38,7 +38,7 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: defaultPadding),
             child: Text(
-              "Women",
+              "Toys",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30
@@ -56,6 +56,7 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
                   crossAxisSpacing: defaultPadding,
                   childAspectRatio: 0.75
                 ),
+                itemCount: product.length,
                 itemBuilder: (context, index) => ItemCard(
                   product: product[index],
                   press: () => Navigator.push(

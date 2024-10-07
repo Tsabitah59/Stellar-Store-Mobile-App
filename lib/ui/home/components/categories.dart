@@ -10,22 +10,26 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> {
 
+  int selectedIndex = 0;
+
   List<String> categories = [
-    "Bag",
-    "Footwear",
-    "Watches",
-    "Dress"
+    "Doll",
+    "Puzzle",
+    "Blocks",
+    "Game Board",
+    "Toy Car"
   ];
 
-  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: defaultPadding),
       child: SizedBox(
-        height: 25,
+        height: 40,
         child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: categories.length,
           itemBuilder: (context, index) => _buildCategory(index),
         ),
       ),
@@ -39,10 +43,34 @@ class _CategoriesState extends State<Categories> {
          selectedIndex = index;
         })
       },
-      child: Text(
-        categories[index],
-        style: TextStyle(
-          color: selectedIndex == index ? primaryColor : secondaryColor,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: defaultPadding, 
+                vertical: 8
+              ),
+              decoration: ShapeDecoration(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    width: 1,
+                    color: selectedIndex == index ? primaryColor : secondaryColor,
+                  ),
+                  borderRadius: BorderRadius.circular(36),
+                ),
+                color: selectedIndex == index ? primaryColor : Colors.white
+              ),
+              child: Text(
+                categories[index],
+                style: TextStyle(
+                  fontSize: 14,
+                  color: selectedIndex == index ? Colors.white : secondaryColor,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

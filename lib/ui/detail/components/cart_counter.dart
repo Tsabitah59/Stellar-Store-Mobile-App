@@ -16,6 +16,13 @@ class _CartCounterState extends State<CartCounter> {
     return Row(
       children: <Widget>[
         OutlinedButton(
+          style: OutlinedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20)),
+              ),
+              fixedSize: Size(30, 30)),
           onPressed: () {
             setState(() {
               if (numOfItems > 1) {
@@ -25,9 +32,8 @@ class _CartCounterState extends State<CartCounter> {
               }
             });
           },
-          child: const Icon(Icons.remove),
+          child: const Icon(Icons.add),
         ),
-        const SizedBox(width: defaultPadding),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
           child: Text(
@@ -36,6 +42,13 @@ class _CartCounterState extends State<CartCounter> {
           ),
         ),
         OutlinedButton(
+          style: OutlinedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
+              ),
+              fixedSize: const Size(30, 30)),
           onPressed: () {
             setState(() {
               numOfItems++;

@@ -22,25 +22,31 @@ class AddToCart extends StatelessWidget {
               border: Border.all(color: product.color),
             ),
             child: IconButton(
+              style: IconButton.styleFrom(
+                foregroundColor: product.color
+              ),
               onPressed: () {},
               icon: const Icon(Icons.add_shopping_cart)
             ),
           ),
           Expanded(
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: product.color,
-                maximumSize: const Size.fromHeight(50),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))
-              ),
-              onPressed: () {},
-              child: const Text(
-                "CHECKOUT",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
+            child: SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: product.color,
+                  maximumSize: const Size.fromHeight(50),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18))
                 ),
-              )
+                onPressed: () {},
+                child: const Text(
+                  "CHECKOUT",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                )
+              ),
             )
           )
         ],

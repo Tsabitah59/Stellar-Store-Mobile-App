@@ -18,6 +18,14 @@ class SplashContent extends StatelessWidget {
     return Column(
       children: [
         const Spacer(),
+        Text(
+          "StellarStore",
+          style: TextStyle(
+            fontSize: getProportionateScreenWidth(24.0),
+            fontWeight: FontWeight.bold,
+            color: Colors.grey
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.all(defaultPadding * 2),
           child: Image.asset(image,

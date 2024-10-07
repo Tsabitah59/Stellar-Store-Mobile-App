@@ -10,8 +10,8 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: press,
+    return GestureDetector( // Buat deteksi jari
+      onTap: press, // Keluar pilihan kalo ditap lama
       child: Column(
         children: [
           Expanded(
@@ -22,24 +22,25 @@ class ItemCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Hero(
+                // Memungkinkan trsansisi animasi halus, antar halaman pada widgets yang sama
                 tag: "${product.id}",
                 child: Image.asset(product.image),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            padding: const EdgeInsets.only(top:10),
             child: Text(
               product.title,
               style: const TextStyle(
+                fontSize: 14,
                 color: textColor
               ),
             ),
           ),
-
           Text(
             "Rp. ${product.price}"
-          )
+          ),
         ],
       ),
     );
