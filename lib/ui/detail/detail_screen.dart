@@ -43,12 +43,12 @@ class DetailScreen extends StatelessWidget {
           children: <Widget>[
             ProductTitle(product: product),
             SizedBox(
-              height: size.height,
               child: Stack(
                 children: [
                   Container(
                     padding: const EdgeInsets.only(
-                      top: defaultPadding,
+                      top: defaultPadding * 2,
+                      bottom: defaultPadding * 2,
                       left: defaultPadding,
                       right: defaultPadding
                     ),

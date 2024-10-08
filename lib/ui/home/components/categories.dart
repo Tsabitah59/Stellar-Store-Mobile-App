@@ -13,6 +13,8 @@ class _CategoriesState extends State<Categories> {
   int selectedIndex = 0;
 
   List<String> categories = [
+    "All",
+    "Flower Bouquet",
     "Doll",
     "Puzzle",
     "Blocks",

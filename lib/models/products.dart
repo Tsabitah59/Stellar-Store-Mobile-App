@@ -49,7 +49,7 @@ List<Product> product = [
     color: const Color(0xFFE6BEC7)),
   Product(
     id: 4,
-    title: "Pink, Yellow, White Tulip",
+    title: "Colorful Tulip",
     price: 234,
     size: 11,
     description: dummyText,

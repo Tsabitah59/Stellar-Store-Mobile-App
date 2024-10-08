@@ -28,18 +28,37 @@ class ItemCard extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top:10),
-            child: Text(
-              product.title,
-              style: const TextStyle(
-                fontSize: 14,
-                color: textColor
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top:10),
+                    child: Text(
+                      product.title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: textColor,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "IDR ${product.price}k"
+                  ),
+                ],
               ),
-            ),
-          ),
-          Text(
-            "IDR ${product.price}k"
+
+              IconButton(
+                onPressed: () {}, 
+                icon: const Icon(
+                  Icons.favorite_border_rounded,
+                  color: secondaryColor,
+                )
+              )
+            ],
           ),
         ],
       ),
