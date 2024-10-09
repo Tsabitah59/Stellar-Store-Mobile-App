@@ -20,8 +20,8 @@ class _CartCounterState extends State<CartCounter> {
             style: OutlinedButton.styleFrom(
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      bottomLeft: Radius.circular(20)),
+                      topLeft: Radius.circular(18),
+                      bottomLeft: Radius.circular(18)),
                 ),
                 fixedSize: const Size(0, 30),
                 iconColor: textColor
@@ -49,8 +49,8 @@ class _CartCounterState extends State<CartCounter> {
           style: OutlinedButton.styleFrom(
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20)
+                topRight: Radius.circular(18),
+                bottomRight: Radius.circular(18)
               ),
             ),
             fixedSize: const Size(0, 30),

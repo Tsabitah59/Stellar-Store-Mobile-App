@@ -38,7 +38,7 @@ List<Product> product = [
     size: 8,
    description: dummyText,
     image: "assets/images/flower_2.png",
-    color: const Color(0xFFD5D3DA)),
+    color: const Color.fromARGB(255, 181, 178, 192)),
   Product(
     id: 3,
     title: "Rainbow Flower",
@@ -62,7 +62,7 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_5.png",
-    color: const Color(0xFFFADCDF)),
+    color: const Color.fromARGB(255, 255, 172, 181)),
   Product(
     id: 6,
     title: "White Flower",

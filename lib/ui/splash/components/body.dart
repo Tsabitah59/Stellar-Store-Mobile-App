@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_store/const.dart';
-import 'package:stellar_store/ui/home/catalouge_screen.dart';
-import 'package:stellar_store/ui/home/components/categories.dart';
+import 'package:stellar_store/ui/explore/catalouge_screen.dart';
+import 'package:stellar_store/ui/explore/components/categories.dart';
 import 'package:stellar_store/ui/splash/components/splash_content.dart';
 
 class Body extends StatefulWidget {
