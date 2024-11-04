@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_store/const.dart';
+import 'package:stellar_store/ui/auth/login_screen.dart';
+import 'package:stellar_store/ui/detail/detail_screen.dart';
 import 'package:stellar_store/ui/explore/catalouge_screen.dart';
 import 'package:stellar_store/ui/explore/components/categories.dart';
+import 'package:stellar_store/ui/home/home_page.dart';
 import 'package:stellar_store/ui/splash/components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -72,7 +75,7 @@ class _BodyState extends State<Body> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                    splashData.length, (index) => _dotsIndicator(index: index)),
+                  splashData.length, (index) => _dotsIndicator(index: index)),
               ),
             ),
 
@@ -116,7 +119,7 @@ class _BodyState extends State<Body> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const CatalougeScreen()
+                                  builder: (context) => LoginScreen()
                                 )
                               );
                             } else {

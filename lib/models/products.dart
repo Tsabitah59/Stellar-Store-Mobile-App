@@ -28,7 +28,7 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_1.png",
-    color: const Color(0xFFD5A7C0)
+    color: const Color(0xFFFF90CD)
     ),
 
   Product(
@@ -38,7 +38,7 @@ List<Product> product = [
     size: 8,
    description: dummyText,
     image: "assets/images/flower_2.png",
-    color: const Color.fromARGB(255, 181, 178, 192)),
+    color: const Color(0xFF847F96)), 
   Product(
     id: 3,
     title: "Rainbow Flower",
@@ -46,7 +46,7 @@ List<Product> product = [
     size: 10,
     description: dummyText,
     image: "assets/images/flower_3.png",
-    color: const Color(0xFFE6BEC7)),
+    color: const Color(0xFFFF95AC)),
   Product(
     id: 4,
     title: "Colorful Tulip",
@@ -54,7 +54,7 @@ List<Product> product = [
     size: 11,
     description: dummyText,
     image: "assets/images/flower_4.png",
-    color: const Color(0xFFCEB69E)),
+    color: const Color(0xFFFFC78F)),
   Product(
     id: 5,
     title: "Mix Flower",
@@ -62,7 +62,7 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_5.png",
-    color: const Color.fromARGB(255, 255, 172, 181)),
+    color: const Color(0xFFFF96A2)),
   Product(
     id: 6,
     title: "White Flower",
@@ -70,7 +70,7 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_6.png",
-    color: const Color.fromARGB(255, 198, 197, 189),
+    color: const Color(0xFFFFF7A2),
   ),
 ];
 

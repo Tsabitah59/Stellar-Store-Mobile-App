@@ -12,6 +12,7 @@ class _CategoriesState extends State<Categories> {
 
   int selectedIndex = 0;
 
+  // Inisialisasi viewPager
   List<String> categories = [
     "All",
     "Flower Bouquet",
