@@ -36,17 +36,8 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
                           color: secondaryColor,
                         ),
                         hintStyle: const TextStyle(color: secondaryColor),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1.0,
-                            color: Colors.grey.shade300
-                          ),
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(color: primaryColor),
-                          borderRadius: BorderRadius.all(Radius.circular(20))
-                        )
+                        enabledBorder:enableOutlineInputBorderMine,
+                        focusedBorder: focusedOutlineInputBorderMine
                         
                       ),
                     )
@@ -77,14 +68,11 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                     child: Text(
                       "Flower Bouquet",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24
-                      ),
+                      style: titleStyle
                     ),
                   ),
                   const Categories(),

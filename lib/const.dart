@@ -21,23 +21,46 @@ const animationDuration = Duration(milliseconds: 200);
 const defaultPadding = 20.0;
 
 // Text Style
-TextStyle settingStyle = const TextStyle(
+TextStyle titleStyle = const TextStyle(
   color: textColor,
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+);
+TextStyle titleStyleBgColor = const TextStyle(
+  color: Colors.white,
   fontSize: 24,
   fontWeight: FontWeight.bold,
 );
 
 TextStyle subTitleStyle = const TextStyle(
   fontWeight: FontWeight.bold,
-  fontSize: 18,
+  fontSize: 14,
   color: textColor
+);
+
+TextStyle subTitleStyleBgColor = const TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 14,
+  color: Colors.white
+);
+
+TextStyle buttonColorBgStyle = const TextStyle(
+  color: Colors.white,
+  fontSize: 16,
+  fontWeight: FontWeight.w700
+);
+
+TextStyle buttonColorStyle = const TextStyle(
+  color: textColor,
+  fontSize: 16,
+  fontWeight: FontWeight.w700
 );
 
 // Form Input
 OutlineInputBorder enableOutlineInputBorderMine = OutlineInputBorder(
-  borderSide: const BorderSide(
+  borderSide: BorderSide(
     width: 1.0,
-    color: secondaryColor
+    color: Colors.grey.shade200
   ),
   borderRadius: BorderRadius.circular(20.0)
 );
@@ -62,14 +85,6 @@ OutlineInputBorder focusErrorOutlineInputBorderMine = OutlineInputBorder(
   borderSide: const BorderSide(
     width: 1.0,
     color: Colors.red
-  ),
-  borderRadius: BorderRadius.circular(20.0)
-);
-
-OutlineInputBorder defaultOutlineInputBorderMine = OutlineInputBorder(
-  borderSide: const BorderSide(
-    width: 1.0,
-    color: Colors.white
   ),
   borderRadius: BorderRadius.circular(20.0)
 );

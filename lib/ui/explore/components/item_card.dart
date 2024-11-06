@@ -38,11 +38,7 @@ class ItemCard extends StatelessWidget {
                     padding: const EdgeInsets.only(top:10),
                     child: Text(
                       product.title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: textColor,
-                        fontWeight: FontWeight.bold
-                      ),
+                      style: subTitleStyle
                     ),
                   ),
                   Text(

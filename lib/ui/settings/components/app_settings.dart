@@ -31,7 +31,7 @@ class _AppSettingsState extends State<AppSettings> {
       // Account Settings
       Text(
         "App Settings",
-        style: settingStyle,
+        style: titleStyle,
       ),
 
       Expanded(

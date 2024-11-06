@@ -5,8 +5,10 @@ import 'package:stellar_store/const.dart';
 import 'package:stellar_store/models/products.dart';
 import 'package:stellar_store/ui/detail/detail_screen.dart';
 import 'package:stellar_store/ui/explore/catalouge_screen.dart';
-import 'package:stellar_store/ui/profile/profile_page.dart';
+import 'package:stellar_store/ui/edit_profile/profile_page.dart';
+import 'package:stellar_store/ui/profile_view/profile_page_view.dart';
 import 'package:stellar_store/ui/settings/settings_screen.dart';
+import 'package:stellar_store/ui/wishlist/wishlist_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -18,36 +20,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // Dimulainya index untuk proses navigasi
   int _selectedIndex = 0;  
-  // bool _isDarkTheme = false;
-
-  // override yang bikin sendiri
-  // @override
-  // void _initState() {
-  //   super.initState();
-  //   _loadTheme();
-  // }
-
-  // An Asyncronous Process
-  // For Changing theme ehe
-  // Future<void> _loadTheme() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     _isDarkTheme = prefs.getBool('isDarkTheme') ?? false;
-  //   });
-  // }
-
-  // Memulai proses Asyncronous
-  // Sebelum loadTheme dijalankan dan digunakan untuk aktivitas toogle
-  // void _toggleTheme(bool isDark) async {
-  //   // Menyimpan data secara lokal
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   // Await digunakan untuk menyimpan data secara Acyncronous
-  //   setState(() {
-  //     _isDarkTheme = isDark;
-  //   });
-  //   await prefs.setBool('isDarkTheme', isDark);
-  // }
-
 
   // Text Styling
   static const TextStyle optionStyle = TextStyle(
@@ -64,10 +36,7 @@ class _HomePageState extends State<HomePage> {
 
     const CatalougeScreen(),
 
-    const Text(
-      'Index 2: Wishlist',
-      style: optionStyle,
-    ),
+    const WishlistPage(),
     
 
     // SettingsScreen(isDarkTheme: _isDarkTheme , onThemeChanged: _toggleTheme),
@@ -77,7 +46,8 @@ class _HomePageState extends State<HomePage> {
       style: optionStyle,
     ),
 
-    const ProfilePage(),
+    const ProfilePageView(),
+    // const ProfilePage()
   ];
 
   // void adalah keyword untuk function yang tidak ada nilai kembalian

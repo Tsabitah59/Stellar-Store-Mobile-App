@@ -38,9 +38,21 @@ class SettingsScreen extends StatelessWidget {
 
       
 
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.all(defaultPadding),
-        child: AccountSettings()
+        child: 
+        AccountSettings(),
+        // AppSettings()
+
+        // Container(
+        //   height: 2000,
+        //   child: Column(
+        //     children: [
+        //       AccountSettings(),
+        //       AppSettings(),
+        //     ],
+        //   ),
+        // )
       )
     );
   }

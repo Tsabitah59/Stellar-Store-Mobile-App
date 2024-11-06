@@ -63,8 +63,8 @@ class _StellarStoreState extends State<StellarStore> {
           bodySmall: TextStyle(color: textColor)
         )
       ),
-      home: // SettingsScreen(isDarkTheme: _isDarkTheme, onThemeChanged: _toggleTheme),
-      HomePage()
+      home: SettingsScreen(isDarkTheme: _isDarkTheme, onThemeChanged: _toggleTheme),
+      // HomePage()
     );
   }
 }

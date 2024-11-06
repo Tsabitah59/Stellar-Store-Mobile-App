@@ -131,11 +131,7 @@ class _BodyState extends State<Body> {
                             currentPage == splashData.length - 1
                                 ? "Get Started"
                                 : "Next",
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700
-                            ),
+                            style: buttonColorBgStyle
                           )),
                     ),
                   ),

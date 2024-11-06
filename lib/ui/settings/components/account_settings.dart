@@ -13,12 +13,16 @@ class _AccountSettingsState extends State<AccountSettings> {
 
   List<Map<String, dynamic>> listOption = [
     {
-      'icon' : 'assets/icons/Notification.svg',
+      'icon' : 'assets/icons/fi-rr-user.svg',
+      'text' : "Account Details"
+    },
+    {
+      'icon' : 'assets/icons/fi-rr-bell.svg',
       'text' : "Notification Setting"
     },
     {
       'icon' : 'assets/icons/Notification.svg',
-      'text' : "Shoopping Address"
+      'text' : "Shopping Address"
     },
     {
       'icon' : 'assets/icons/Wallet.svg',
@@ -39,7 +43,7 @@ class _AccountSettingsState extends State<AccountSettings> {
       // Account Settings
       Text(
         "Account",
-        style: settingStyle,
+        style: titleStyle,
       ),
 
       // List Settingnya ehe
