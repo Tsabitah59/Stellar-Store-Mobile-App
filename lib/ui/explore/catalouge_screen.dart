@@ -4,6 +4,10 @@ import 'package:stellar_store/models/products.dart';
 import 'package:stellar_store/ui/detail/detail_screen.dart';
 import 'package:stellar_store/ui/explore/components/categories.dart';
 import 'package:stellar_store/ui/explore/components/item_card.dart';
+import 'package:stellar_store/ui/home/home_page.dart';
+import 'package:stellar_store/ui/main/main_screen.dart';
+import 'package:stellar_store/ui/profile_view/profile_page_view.dart';
+import 'package:stellar_store/ui/wishlist/wishlist_page.dart';
 
 class CatalougeScreen extends StatefulWidget {
   const CatalougeScreen({super.key});
@@ -11,6 +15,9 @@ class CatalougeScreen extends StatefulWidget {
   @override
   State<CatalougeScreen> createState() => _CatalougeScreenState();
 }
+
+int _selectedIndex = 0;
+
 
 // <> adalah lambang generic
 class _CatalougeScreenState extends State<CatalougeScreen> {
@@ -103,9 +110,9 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
                 ]
               ),
             ),
-          )
+          ),
         ],
-      ),
+      )
     );
   }
 }

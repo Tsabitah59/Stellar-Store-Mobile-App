@@ -4,7 +4,7 @@ import 'package:stellar_store/ui/auth/login_screen.dart';
 import 'package:stellar_store/ui/detail/detail_screen.dart';
 import 'package:stellar_store/ui/explore/catalouge_screen.dart';
 import 'package:stellar_store/ui/explore/components/categories.dart';
-import 'package:stellar_store/ui/home/home_page.dart';
+import 'package:stellar_store/ui/main/main_screen.dart';
 import 'package:stellar_store/ui/splash/components/splash_content.dart';
 
 class Body extends StatefulWidget {

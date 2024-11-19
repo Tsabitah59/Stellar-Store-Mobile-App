@@ -21,15 +21,15 @@ class _AccountSettingsState extends State<AccountSettings> {
       'text' : "Notification Setting"
     },
     {
-      'icon' : 'assets/icons/Notification.svg',
+      'icon' : 'assets/icons/fi-rr-shopping-cart.svg',
       'text' : "Shopping Address"
     },
     {
-      'icon' : 'assets/icons/Wallet.svg',
+      'icon' : 'assets/icons/fi-rr-money.svg',
       'text' : "Payment Info"
     },
     {
-      'icon' : 'assets/icons/Notification.svg',
+      'icon' : 'assets/icons/fi-rr-trash.svg',
       'text' : "Delete Account"
     },
   ];
@@ -47,7 +47,8 @@ class _AccountSettingsState extends State<AccountSettings> {
       ),
 
       // List Settingnya ehe
-      Expanded(
+      SizedBox(
+        height: 80 * listOption.length.toDouble(),
         child: ListView.builder(
           itemCount: listOption.length,
           itemBuilder: (context, index) => _customList(
@@ -71,9 +72,12 @@ class _AccountSettingsState extends State<AccountSettings> {
           ),
           title: Text(text),
           trailing: SvgPicture.asset(
-            'assets/icons/miniRight.svg',
+            'assets/icons/fi-rr-angle-small-right.svg',
             colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
-          )
+          ),
+          onTap: () {
+            Navigator.pushNamed(context, '/edit-profile');
+          },
         ),
         Divider(
           height: 1,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/ui/auth/login_screen.dart';
-import 'package:stellar_store/ui/home/home_page.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -13,6 +12,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   // const RegisterScreen({super.key});
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
+  final _phoneController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -43,33 +43,63 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                  labelText: "Name",
+                  labelStyle: const TextStyle(
+                    color: secondaryColor
+                  ),
+                  enabledBorder: enableOutlineInputBorderMine,
+                  focusedBorder: focusedOutlineInputBorderMine,
+                  errorBorder: errorOutlineInputBorderMine,
+                  focusedErrorBorder: focusErrorOutlineInputBorderMine,
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Name is reqired";
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+
+              // Phone Number
+              TextFormField(
+                controller: _phoneController,
+                decoration: InputDecoration(
+                  labelText: "Phone Number",
+                  labelStyle: const TextStyle(
+                    color: secondaryColor
+                  ),
+                  enabledBorder: enableOutlineInputBorderMine,
+                  focusedBorder: focusedOutlineInputBorderMine,
+                  errorBorder: errorOutlineInputBorderMine,
+                  focusedErrorBorder: focusErrorOutlineInputBorderMine
+                ),
+                // If else buat login.
+                validator: (value) {
+                  //  Jika gak ada value maka muncul pesan. 
+                  if (value == null || value.isEmpty) {
+                    return "Email is required!";
+                  }
+                // Tapi jika ada, maka dia gak return apa-apa. Paling ke homepage :v 
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+              
+              // Email
+              TextFormField(
                 controller: _emailController,
                 decoration: InputDecoration(
                   labelText: "Your Email",
                   labelStyle: const TextStyle(
                     color: secondaryColor
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: secondaryColor
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: primaryColor
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: Colors.red
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  )
+                  enabledBorder: enableOutlineInputBorderMine,
+                  focusedBorder: focusedOutlineInputBorderMine,
+                  errorBorder: errorOutlineInputBorderMine,
+                  focusedErrorBorder: focusErrorOutlineInputBorderMine
                 ),
                 // If else buat login.
                 validator: (value) {
@@ -90,27 +120,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   labelStyle: const TextStyle(
                     color: secondaryColor
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: secondaryColor
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: primaryColor
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: Colors.red
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
+                  enabledBorder: enableOutlineInputBorderMine,
+                  focusedBorder: focusedOutlineInputBorderMine,
+                  errorBorder: errorOutlineInputBorderMine,
+                  focusedErrorBorder: focusErrorOutlineInputBorderMine,
                   suffixIcon: IconButton(
                     icon: Icon(
                       _passwordVisible ? Icons.visibility : Icons.visibility_off
@@ -129,44 +142,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   return null;
                 },
               ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _nameController,
-                decoration: InputDecoration(
-                  labelText: "Name",
-                  labelStyle: const TextStyle(
-                    color: secondaryColor
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: secondaryColor
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: primaryColor
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      width: 1.0,
-                      color: Colors.red
-                    ),
-                    borderRadius: BorderRadius.circular(20.0)
-                  ),
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Name is reqired";
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 20 * 2),
               SizedBox(
                 width: double.infinity,
                 height: 50,
@@ -179,15 +155,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       // It SHOWS the toast yey, tapi widgetnya dipisah. Gak tau bisanya kek gini =D
                       showToast(context);
 
-                      Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const HomePage())
-                      );
+                      Navigator.pushReplacementNamed(context, '/main');
                     }
                   }, 
                   child: const Text("Sign Up")
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 20 * 2),
               TextButton(
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -195,7 +169,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   );
                 }, 
                 child: const Text(
-                  "Already have account? Sign in"
+                  "Already have account? Sign in",
+                    style: TextStyle(
+                    color: textColor
+                  ),
                 )
               )
             ],

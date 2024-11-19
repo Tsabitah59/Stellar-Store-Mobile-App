@@ -33,9 +33,10 @@ class _AppSettingsState extends State<AppSettings> {
         "App Settings",
         style: titleStyle,
       ),
-
-      Expanded(
+      SizedBox(
+        height: 80 * settingsOptionList.length.toDouble(),
         child: ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: settingsOptionList.length,
           itemBuilder: (context, index) => _customListForAppSetting(index),
         )
@@ -56,7 +57,7 @@ class _AppSettingsState extends State<AppSettings> {
               Text(
                 settingsOptionList[index],
                 style: const TextStyle(
-                  fontSize: 18
+                  fontSize: 16
                 ),
               ),
               Switch(

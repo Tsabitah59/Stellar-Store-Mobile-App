@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stellar_store/const.dart';
+import 'package:stellar_store/state-management/theme_prvider.dart';
+import 'package:stellar_store/ui/auth/login_screen.dart';
+import 'package:stellar_store/ui/auth/register_screen.dart';
+import 'package:stellar_store/ui/edit_profile/profile_page.dart';
+import 'package:stellar_store/ui/explore/catalouge_screen.dart';
 import 'package:stellar_store/ui/home/home_page.dart';
-import 'package:stellar_store/ui/settings/settings_screen.dart';
+import 'package:stellar_store/ui/main/main_screen.dart';
+import 'package:stellar_store/ui/profile_view/profile_page_view.dart';
+import 'package:stellar_store/settings/settings_screen.dart';
 import 'package:stellar_store/ui/splash/splash_screen.dart';
+import 'package:stellar_store/ui/wishlist/wishlist_page.dart';
 
 void main(){
-  runApp(const StellarStore());
+  runApp(ChangeNotifierProvider(
+    
+    // Placeholder untuk templater provider yang belum terdefinisi
+    create: (_) => ThemeProvider(),
+    child: const StellarStore()
+  ));
 }
 
 class StellarStore extends StatefulWidget {
@@ -17,54 +31,45 @@ class StellarStore extends StatefulWidget {
 }
 
 class _StellarStoreState extends State<StellarStore> {
-  bool _isDarkTheme = false;
-
-  // override yang bikin sendiri
-  @override
-  void _initState() {
-    super.initState();
-    _loadTheme();
-  }
-
-  // An Asyncronous Process
-  // For Changing theme ehe
-  Future<void> _loadTheme() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _isDarkTheme = prefs.getBool('isDarkTheme') ?? false;
-    });
-  }
-
-  // Memulai proses Asyncronous
-  // Sebelum loadTheme dijalankan dan digunakan untuk aktivitas toogle
-  void _toggleTheme(bool isDark) async {
-    // Menyimpan data secara lokal
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    // Await digunakan untuk menyimpan data secara Acyncronous
-    setState(() {
-      _isDarkTheme = isDark;
-    });
-    await prefs.setBool('isDarkTheme', isDark);
-  }
 
   // Tempat MaterialApp
   @override
   Widget build(BuildContext context) {
-      return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'StellarStore',
-      theme: ThemeData(
-        brightness: _isDarkTheme ? Brightness.dark : Brightness.light,
-        scaffoldBackgroundColor: _isDarkTheme ? Colors.grey.shade900 : Colors.white,
-        fontFamily: 'Muli',
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: textColor),
-          bodySmall: TextStyle(color: textColor)
-        )
-      ),
-      home: SettingsScreen(isDarkTheme: _isDarkTheme, onThemeChanged: _toggleTheme),
-      // HomePage()
+      return Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'StellarStore',
+            theme: ThemeData(
+              brightness: themeProvider.isDarkTheme ? Brightness.dark : Brightness.light,
+              scaffoldBackgroundColor: themeProvider.isDarkTheme ? Color(0xFF141218) : const Color(0xFFFEF7FF),
+              fontFamily: 'Muli',
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+              textTheme: const TextTheme(
+                bodyMedium: TextStyle(color: textColor),
+                bodySmall: TextStyle(color: textColor)
+              )
+            ),
+            
+            initialRoute: '/',
+            routes: {
+              '/' : (context) => const SplashScreen(),
+              '/register' : (context) => RegisterScreen(),
+              '/login' : (context) => LoginScreen(),
+              '/main' : (context) => const MainScreen(),
+            
+              // Main Screens
+              '/home' : (context) => const HomePage(),
+              '/explore' : (context) => const CatalougeScreen(),
+              '/wishlist' : (context) => const WishlistPage(),
+              '/profile' : (context) => const ProfilePageView(),
+            
+              // Settings
+              '/settings' : (context) => SettingsScreen(),
+              '/edit-profile': (context) => const ProfilePage()
+            },
+          );
+        },
     );
   }
 }

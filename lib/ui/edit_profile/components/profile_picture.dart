@@ -31,7 +31,7 @@ class ProfilePicture extends StatelessWidget {
               ),
               onPressed: () {}, 
               icon: SvgPicture.asset(
-                'assets/icons/Camera-add.svg',
+                'assets/icons/fi-rr-camera.svg',
                 colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               )
             ),

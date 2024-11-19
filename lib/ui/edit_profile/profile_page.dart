@@ -12,22 +12,22 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
+        title: Text(
+          "Edit Profile",
+          style: titleStyle,
+        ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(defaultPadding),
+      body: const Padding(
+        padding: EdgeInsets.all(defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "Edit Profile",
-              style: titleStyle,
-            ),
-            const SizedBox(height: defaultPadding,),
-            const ProfilePicture(),
-            const SizedBox(height: defaultPadding * 2),
-            const Biodata(),
-            const SizedBox(height: defaultPadding,),
-            const SaveButton()
+            SizedBox(height: defaultPadding,),
+            ProfilePicture(),
+            SizedBox(height: defaultPadding * 2),
+            Biodata(),
+            SizedBox(height: defaultPadding * 2),
+            SaveButton()
           ],
         ),
       ),

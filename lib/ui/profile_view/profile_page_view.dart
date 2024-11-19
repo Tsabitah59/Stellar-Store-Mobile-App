@@ -3,7 +3,7 @@ import 'package:stellar_store/const.dart';
 import 'package:stellar_store/ui/edit_profile/profile_page.dart';
 import 'package:stellar_store/ui/profile_view/components/profile_pic_view.dart';
 import 'package:stellar_store/ui/profile_view/components/wallet.dart';
-import 'package:stellar_store/ui/settings/settings_screen.dart';
+import 'package:stellar_store/settings/settings_screen.dart';
 
 class ProfilePageView extends StatelessWidget {
   const ProfilePageView({super.key});
@@ -21,19 +21,15 @@ class ProfilePageView extends StatelessWidget {
               SizedBox(
                 height: 50,
                 width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey.shade50,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.grey.shade100,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)
                     )
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context, 
-                      MaterialPageRoute(builder: (context) => const ProfilePage() 
-                    )
-                    );
+                    Navigator.pushNamed(context, '/settings');
                   }, 
                   child: Text(
                     "Profile Settings",

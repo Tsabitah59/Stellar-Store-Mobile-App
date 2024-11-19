@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/ui/auth/register_screen.dart';
-import 'package:stellar_store/ui/home/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -102,19 +101,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      // If the validation success, it will navigate to home page ehe
-                      // Fluttertoast.showToast(
-                      //   msg: "Hi, Nice to see you back!",
-                      //   toastLength: Toast.LENGTH_LONG,
-                      //   gravity: ToastGravity.BOTTOM,
-                      //   backgroundColor: primaryColor,
-                      // );
 
                       showToast(context);
 
-                      Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (context) => const HomePage())
-                      );
+                      Navigator.pushReplacementNamed(context, '/main');
                     }
                   }, 
                   child: const Text(
@@ -129,12 +119,13 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 20),
               TextButton(
                 onPressed: () {
-                  Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => RegisterScreen())
-                  );
+                  Navigator.pushReplacementNamed(context, '/register');
                 }, 
                 child: const Text(
-                  "Not have account? Sign up"
+                  "Not have account? Sign up",
+                  style: TextStyle(
+                    color: textColor
+                  ),
                 )
               )
             ],
