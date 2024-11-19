@@ -187,40 +187,42 @@ void showToast(BuildContext context) {
   FToast fToast = FToast();  
   fToast.init(context);  
 
-  Widget toast = Container(  
-    width: double.infinity,  
-    height: 600,
-    decoration: BoxDecoration(  
-      border: Border.all(color: primaryColor),
-      borderRadius: BorderRadius.circular(20.0),  
-      color: Colors.white,  
-    ),  
-    padding: const EdgeInsets.all(defaultPadding),  
-    child: const Column(
-      children: [
-        Text(
-          "Success!",
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold
+  Widget toast = Padding(
+    padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+    child: Container(  
+      width: double.infinity,  
+      decoration: BoxDecoration(  
+        border: Border.all(color: primaryColor),
+        borderRadius: BorderRadius.circular(20.0),  
+        color: Colors.white,  
+      ),  
+      padding: const EdgeInsets.all(defaultPadding),  
+      child: const Column(
+        children: [
+          Text(
+            "Success!",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold
+            ),
           ),
-        ),
-        SizedBox(height: defaultPadding / 2),
-        Text(  
-          "Welcome to StellarStore!",  
-          textAlign: TextAlign.center,  
-          style: TextStyle(
-            color: textColor,
-            fontSize: 14
-          ),  
-        ),
-      ],
-    ),  
+          SizedBox(height: defaultPadding / 2),
+          Text(  
+            "Welcome to StellarStore!",  
+            textAlign: TextAlign.center,  
+            style: TextStyle(
+              color: textColor,
+              fontSize: 14
+            ),  
+          ),
+        ],
+      ),  
+    ),
   );  
 
   fToast.showToast(  
     child: toast,  
-    gravity: ToastGravity.CENTER,  
-    toastDuration: const Duration(seconds: 5),  
+    gravity: ToastGravity.BOTTOM,  
+    toastDuration: const Duration(seconds: 3),  
   );  
 }  

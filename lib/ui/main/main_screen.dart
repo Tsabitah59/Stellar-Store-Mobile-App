@@ -17,12 +17,6 @@ class _MainScreenState extends State<MainScreen> {
   // Dimulainya index untuk proses navigasi
   int _selectedIndex = 0;  
 
-  // Text Styling
-  static const TextStyle optionStyle = TextStyle(
-    fontSize: 30,
-    fontWeight: FontWeight.bold
-  );
-
   // Komponen Navigasi -> Label
   static List<Widget> widgetOptions = <Widget>[
     const HomePage(),
@@ -74,9 +68,25 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          "Hello, Helatra!",
-          style: titleStyle,
+        title: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Location",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 14
+              ),
+            ),
+            Text(
+              "Bogor, Indonesia",
+              style: TextStyle(
+                color: textColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ],
         ),
         actions: [
           IconButton(
