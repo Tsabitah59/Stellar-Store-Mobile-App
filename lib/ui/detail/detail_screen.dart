@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/models/products.dart';
 import 'package:stellar_store/ui/detail/components/add_to_cart.dart';
@@ -26,14 +27,18 @@ class DetailScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {}, 
-            icon: const Icon(
-              Icons.favorite_border_outlined,
-              
-            )
+            icon: SvgPicture.asset(
+              'assets/icons/fi-rr-heart.svg',
+              colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+            ),    
           ),
+
           IconButton(
             onPressed: () {}, 
-            icon: const Icon(Icons.shopping_cart_outlined)
+            icon: SvgPicture.asset(
+              'assets/icons/fi-rr-shopping-cart.svg',
+              colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+            )
           )
         ],
       ),

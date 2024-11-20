@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider extends ChangeNotifier {
+  // Setter
   bool _isDarkTheme = false;
 
   ThemeProvider() {
     _loadTheme();
   }
 
+  // Getter
   bool get isDarkTheme => _isDarkTheme;
 
   void toggleTheme(bool isDark) async {
+    // mengelola konfigurasi perubahan 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     _isDarkTheme = isDark;
     await prefs.setBool('isDarktheme', isDark);
