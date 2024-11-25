@@ -55,7 +55,7 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
                   height: 50,
                   margin: const EdgeInsets.only(left: defaultPadding),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(borderRadiusSizeMine),
                     color: primaryColor
                   ),
                   child: IconButton(

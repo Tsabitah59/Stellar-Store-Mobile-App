@@ -9,7 +9,7 @@ class ThemeProvider extends ChangeNotifier {
     _loadTheme();
   }
 
-  // Getter
+  // Getter (ditandai dengan 'get')
   bool get isDarkTheme => _isDarkTheme;
 
   void toggleTheme(bool isDark) async {
@@ -21,10 +21,11 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   void _loadTheme() async {
+    // SharePreferences diletakkan di dalam karena mengimplementasikan sebuah future yang hanya bisa digunakan di dalam function =D
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     // ?? = Elvis operator for defining a default value on our variable (avoid NPE)
-    _isDarkTheme = prefs.getBool('isDarkTheme') ?? false;
+    _isDarkTheme = prefs.getBool('isDarkTheme') ?? false; // False untuk set default value-nya
     notifyListeners();
   }
 }

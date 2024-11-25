@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_store/const.dart';
 
+// Satu-satunya acuan untuk data yang digunakan
 class Product {
   final String image, title, description;
   final int price, size, id;
@@ -28,8 +29,8 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_1.png",
-    color: const Color(0xFFFF90CD)
-    ),
+    color: const Color(0xFFFFBEE2)
+  ),
 
   Product(
     id: 2,
@@ -38,7 +39,9 @@ List<Product> product = [
     size: 8,
    description: dummyText,
     image: "assets/images/flower_2.png",
-    color: const Color(0xFF847F96)), 
+    color: const Color(0xFFDFD8FF), 
+  ),
+
   Product(
     id: 3,
     title: "Rainbow Flower",
@@ -46,7 +49,9 @@ List<Product> product = [
     size: 10,
     description: dummyText,
     image: "assets/images/flower_3.png",
-    color: const Color(0xFFFF95AC)),
+    color: const Color(0xFFFFD8E1)
+  ),
+
   Product(
     id: 4,
     title: "Colorful Tulip",
@@ -54,7 +59,9 @@ List<Product> product = [
     size: 11,
     description: dummyText,
     image: "assets/images/flower_4.png",
-    color: const Color(0xFFFFC78F)),
+    color: const Color(0xFFFFE1C3)
+  ),
+
   Product(
     id: 5,
     title: "Mix Flower",
@@ -62,7 +69,9 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_5.png",
-    color: const Color(0xFFFF96A2)),
+    color: const Color(0xFFFFCDD2)
+  ),
+
   Product(
     id: 6,
     title: "White Flower",
@@ -70,7 +79,7 @@ List<Product> product = [
     size: 12,
     description: dummyText,
     image: "assets/images/flower_6.png",
-    color: const Color(0xFFFFF7A2),
+    color: const Color(0xFFFFFAC4),
   ),
 ];
 

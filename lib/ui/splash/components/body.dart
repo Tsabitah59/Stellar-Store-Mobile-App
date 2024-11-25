@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/ui/auth/login_screen.dart';
 import 'package:stellar_store/ui/detail/detail_screen.dart';
@@ -93,16 +94,16 @@ class _BodyState extends State<Body> {
                     height: 50,
                     decoration: BoxDecoration(
                       border: Border.all(color: primaryColor),
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(borderRadiusSizeMine)
                     ),
                     child: IconButton(
                       onPressed: () {
                         _pageController.animateToPage(currentPage - 1, 
                         duration: animationDuration, curve: Curves.ease);
                       }, 
-                      icon: const Icon(
-                        Icons.arrow_back,
-                        color: primaryColor,
+                      icon: SvgPicture.asset(
+                        'assets/icons/fi-rr-angle-small-left.svg',
+                        colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn)
                       )
                     ),
                   ),
@@ -113,7 +114,7 @@ class _BodyState extends State<Body> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
+                            borderRadius: BorderRadius.circular(borderRadiusSizeMine))),
                           onPressed: () {
                             if (currentPage == splashData.length - 1) {
                               Navigator.push(

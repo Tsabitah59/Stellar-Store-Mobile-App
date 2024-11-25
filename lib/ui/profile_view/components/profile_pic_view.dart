@@ -20,7 +20,7 @@ class ProfilePicView extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             color: primaryColor,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(borderRadiusSizeMine),
           ),
         ),
         Positioned(

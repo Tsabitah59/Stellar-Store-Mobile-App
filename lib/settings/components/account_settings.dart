@@ -70,7 +70,10 @@ class _AccountSettingsState extends State<AccountSettings> {
             icon,
             colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
           ),
-          title: Text(text),
+          title: Text(
+            text,
+            style: const TextStyle(color: textColor),
+          ),
           trailing: SvgPicture.asset(
             'assets/icons/fi-rr-angle-small-right.svg',
             colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),

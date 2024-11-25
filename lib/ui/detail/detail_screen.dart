@@ -26,7 +26,9 @@ class DetailScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () {}, 
+            onPressed: () {
+              Navigator.pushNamed(context, '/wishlist');
+            }, 
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-heart.svg',
               colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
@@ -34,7 +36,10 @@ class DetailScreen extends StatelessWidget {
           ),
 
           IconButton(
-            onPressed: () {}, 
+            onPressed: () {
+              Navigator.pushNamed(context, '/cart');
+            }, 
+            
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-shopping-cart.svg',
               colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
@@ -71,12 +76,12 @@ class DetailScreen extends StatelessWidget {
                         const SizedBox(height: defaultPadding),
                         Description(product: product),
                         const SizedBox(height: defaultPadding),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            CartCounter(),
-                            FavButton()
+                            const CartCounter(),
+                            FavButton(product: product)
                           ],
                         ),
                         const SizedBox(height: defaultPadding),

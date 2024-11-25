@@ -7,7 +7,7 @@ import 'package:stellar_store/settings/components/app_settings.dart';
 import 'package:stellar_store/state-management/theme_prvider.dart';
 
 class SettingsScreen extends StatelessWidget {
-  SettingsScreen({super.key});
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              themeProvider.toggleTheme(themeProvider.isDarkTheme);
+              themeProvider.toggleTheme(!themeProvider.isDarkTheme);
             },
 
             icon: SvgPicture.asset(
@@ -47,7 +47,7 @@ class SettingsScreen extends StatelessWidget {
         Column(
           children: [
             AccountSettings(),
-            SizedBox(height: defaultPadding * 2),
+            SizedBox(height: defaultPadding),
             AppSettings()
           ],
         ),

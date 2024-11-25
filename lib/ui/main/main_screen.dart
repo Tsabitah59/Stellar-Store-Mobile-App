@@ -97,7 +97,9 @@ class _MainScreenState extends State<MainScreen> {
             )
           ),
           IconButton(
-            onPressed: () {}, 
+            onPressed: () {
+              Navigator.pushNamed(context, '/cart');
+            }, 
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-shopping-cart.svg',
               colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),

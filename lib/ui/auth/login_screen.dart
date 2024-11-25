@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/ui/auth/register_screen.dart';
@@ -20,115 +21,122 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Sign In"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Welcome Back!",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  labelText: "Your Email",
-                  labelStyle: const TextStyle(
-                    color: secondaryColor
+      body: Container(
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: primaryGradientColor,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Welcome Back!",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold
                   ),
-                  enabledBorder: enableOutlineInputBorderMine,
-                  focusedBorder: focusedOutlineInputBorderMine,
-                  errorBorder: errorOutlineInputBorderMine,
-                  focusedErrorBorder: focusErrorOutlineInputBorderMine
                 ),
-                // If else buat login.
-                validator: (value) {
-                  //  Jika gak ada value maka muncul pesan. 
-                  if (value == null || value.isEmpty) {
-                    return "Email is required!";
-                  }
-                // Tapi jika ada, maka dia gak return apa-apa. Paling ke homepage :v 
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              TextFormField(
-                controller: _passwordController,
-                obscureText: !_passwordVisible,
-                decoration: InputDecoration(
-                  labelText: "Your Password",
-                  labelStyle: const TextStyle(
-                    color: secondaryColor
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    labelText: "Your Email",
+                    labelStyle: const TextStyle(
+                      color: secondaryColor
+                    ),
+                    enabledBorder: enableOutlineInputBorderMine,
+                    focusedBorder: focusedOutlineInputBorderMine,
+                    errorBorder: errorOutlineInputBorderMine,
+                    focusedErrorBorder: focusErrorOutlineInputBorderMine
                   ),
-                  enabledBorder: enableOutlineInputBorderMine,
-                  focusedBorder: focusedOutlineInputBorderMine,
-                  errorBorder: errorOutlineInputBorderMine,
-                  focusedErrorBorder: focusErrorOutlineInputBorderMine,
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _passwordVisible ? Icons.visibility : Icons.visibility_off
+                  // If else buat login.
+                  validator: (value) {
+                    //  Jika gak ada value maka muncul pesan. 
+                    if (value == null || value.isEmpty) {
+                      return "Email is required!";
+                    }
+                    if (!value.endsWith('@gmail.com')) {
+                      return "Please fill with valid domain";
+                    }
+                  // Tapi jika ada, maka dia gak return apa-apa. Paling ke homepage :v 
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: !_passwordVisible,
+                  decoration: InputDecoration(
+                    labelText: "Your Password",
+                    labelStyle: const TextStyle(
+                      color: secondaryColor
+                    ),
+                    enabledBorder: enableOutlineInputBorderMine,
+                    focusedBorder: focusedOutlineInputBorderMine,
+                    errorBorder: errorOutlineInputBorderMine,
+                    focusedErrorBorder: focusErrorOutlineInputBorderMine,
+                    suffixIcon: IconButton(
+                      icon: SvgPicture.asset(
+                        _passwordVisible ? 'assets/icons/fi-rr-eye.svg' : 'assets/icons/fi-rr-eye-crossed.svg',
+                        colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+                      ),
+                      onPressed: () {
+                       setState(() {
+                         _passwordVisible = !_passwordVisible;
+                       });
+                      } 
+                    )
+                  ),
+                  validator:(value) {
+                    if (value == null || value.isEmpty) {
+                      return "Passsword is reqired";
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: defaultPadding * 2),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(borderRadiusSizeMine)
+                      )
                     ),
                     onPressed: () {
-                     setState(() {
-                       _passwordVisible = !_passwordVisible;
-                     });
-                    } 
-                  )
-                ),
-                validator:(value) {
-                  if (value == null || value.isEmpty) {
-                    return "Passsword is reqired";
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: primaryColor,
+                      if (_formKey.currentState!.validate()) {
+        
+                        showToast(context);
+        
+                        Navigator.pushReplacementNamed(context, '/main');
+                      }
+                    }, 
+                    child: Text(
+                      "Sign In",
+                      style: buttonColorBgStyle
+                    )
                   ),
+                ),
+                const SizedBox(height: 20),
+                TextButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-
-                      showToast(context);
-
-                      Navigator.pushReplacementNamed(context, '/main');
-                    }
+                    Navigator.pushReplacementNamed(context, '/register');
                   }, 
                   child: const Text(
-                    "Sign In",
+                    "Not have account? Sign up",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16
+                      color: textColor
                     ),
                   )
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/register');
-                }, 
-                child: const Text(
-                  "Not have account? Sign up",
-                  style: TextStyle(
-                    color: textColor
-                  ),
                 )
-              )
-            ],
+              ],
+            ),
           ),
         ),
       )
@@ -146,7 +154,7 @@ void showToast(BuildContext context) {
       width: double.infinity,  
       decoration: BoxDecoration(  
         border: Border.all(color: primaryColor),
-        borderRadius: BorderRadius.circular(20.0),  
+        borderRadius: BorderRadius.circular(borderRadiusSizeMine),  
         color: Colors.white,  
       ),  
       padding: const EdgeInsets.all(defaultPadding),  

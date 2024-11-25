@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/models/products.dart';
+import 'package:stellar_store/ui/detail/components/fav_button.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({super.key, required this.product, required this.press});
@@ -19,7 +20,7 @@ class ItemCard extends StatelessWidget {
               padding: const EdgeInsets.all(defaultPadding),
               decoration: BoxDecoration(
                 color: product.color,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(borderRadiusSizeMine),
               ),
               child: Hero(
                 // Memungkinkan trsansisi animasi halus, antar halaman pada widgets yang sama
@@ -47,13 +48,7 @@ class ItemCard extends StatelessWidget {
                 ],
               ),
 
-              IconButton(
-                onPressed: () {}, 
-                icon: const Icon(
-                  Icons.favorite_border_rounded,
-                  color: secondaryColor,
-                )
-              )
+              FavButton(product: product)
             ],
           ),
         ],

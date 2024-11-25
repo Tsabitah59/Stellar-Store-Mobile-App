@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+// =============== COLORS ===============
 // Primary Color Definition
-const primaryColor = Color(0xFF00BBE8);
-const primaryLightColor = Color(0xFF02CCFF);
+const primaryColor = Color(0xFF00CDFF);
+const primaryLightColor = Color(0xFF14D1FF);
 const primaryGradientColor = LinearGradient(
   colors: [
     Color(0xFFCBC5FF),
@@ -14,13 +15,18 @@ const primaryGradientColor = LinearGradient(
 const secondaryColor = Color(0xFF979797);
 const textColor = Color(0xFF757575);
 
+// =============== SIZE & DURATION ===============
 // Animation Duration
 const animationDuration = Duration(milliseconds: 200);
 
 // Value for Padding Size
 const defaultPadding = 20.0;
 
-// Text Style
+// Border Radius
+const borderRadiusSizeMine = 18.0;
+
+// =============== TEXT ===============
+// Title
 TextStyle titleStyle = const TextStyle(
   color: textColor,
   fontSize: 24,
@@ -32,6 +38,7 @@ TextStyle titleStyleBgColor = const TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+// Subtitle
 TextStyle subTitleStyle = const TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 14,
@@ -44,6 +51,7 @@ TextStyle subTitleStyleBgColor = const TextStyle(
   color: Colors.white
 );
 
+// Button
 TextStyle buttonColorBgStyle = const TextStyle(
   color: Colors.white,
   fontSize: 16,
@@ -56,36 +64,40 @@ TextStyle buttonColorStyle = const TextStyle(
   fontWeight: FontWeight.w700
 );
 
-// Form Input
+// =============== FORM INPUT ===============
+// Default
 OutlineInputBorder enableOutlineInputBorderMine = OutlineInputBorder(
   borderSide: BorderSide(
     width: 1.0,
     color: Colors.grey.shade200
   ),
-  borderRadius: BorderRadius.circular(20.0)
+  borderRadius: BorderRadius.circular(borderRadiusSizeMine)
 );
 
+// Focus
 OutlineInputBorder focusedOutlineInputBorderMine = OutlineInputBorder(
   borderSide: const BorderSide(
     width: 1.0,
     color: primaryColor
   ),
-  borderRadius: BorderRadius.circular(20.0)
+  borderRadius: BorderRadius.circular(borderRadiusSizeMine)
 );
 
+// Error
 OutlineInputBorder errorOutlineInputBorderMine = OutlineInputBorder(
   borderSide: const BorderSide(
     width: 1.0,
     color: Colors.red
   ),
-  borderRadius: BorderRadius.circular(20.0)
+  borderRadius: BorderRadius.circular(borderRadiusSizeMine)
 );
 
+// Focused Error
 OutlineInputBorder focusErrorOutlineInputBorderMine = OutlineInputBorder(
   borderSide: const BorderSide(
     width: 1.0,
     color: Colors.red
   ),
-  borderRadius: BorderRadius.circular(20.0)
+  borderRadius: BorderRadius.circular(borderRadiusSizeMine)
 );
 

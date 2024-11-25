@@ -23,9 +23,9 @@ class ProfilePageView extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton(
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.grey.shade100,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)
+                      borderRadius: BorderRadius.circular(borderRadiusSizeMine)
                     )
                   ),
                   onPressed: () {
