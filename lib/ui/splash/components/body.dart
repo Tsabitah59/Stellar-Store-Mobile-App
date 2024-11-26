@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/ui/auth/login_screen.dart';
-import 'package:stellar_store/ui/detail/detail_screen.dart';
-import 'package:stellar_store/ui/explore/catalouge_screen.dart';
-import 'package:stellar_store/ui/explore/components/categories.dart';
-import 'package:stellar_store/ui/main/main_screen.dart';
 import 'package:stellar_store/ui/splash/components/splash_content.dart';
 
 class Body extends StatefulWidget {
@@ -18,11 +14,10 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   int currentPage = 0;
 
+  // ViewPager (untuk pindah halaman)
   PageController _pageController = PageController();
-  // List<String> product = List.generate(
-  //   10, (index) => "Product $(index + 1)"
-  // );
 
+  // Dasar pengambilan data dari API
   List<Map<String, String>> splashData = [
     {
       "title": "Welcome There",
@@ -72,11 +67,14 @@ class _BodyState extends State<Body> {
               ),
             ),
 
+            // Logic untuk dots indicator dengan method extraction
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
-                  splashData.length, (index) => _dotsIndicator(index: index)),
+                  splashData.length, 
+                  (index) => _dotsIndicator(index: index)
+                ),
               ),
             ),
 
@@ -145,11 +143,13 @@ class _BodyState extends State<Body> {
     );
   }
 
+  // Dots indicator-nya
   AnimatedContainer _dotsIndicator({required int index}) {
     return AnimatedContainer(
       margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
+        // kondisi ? kondisi benar : kondisi salah
         color: currentPage == index ? primaryColor : secondaryColor,
       ),
       width: currentPage == index ? 20 : 10,

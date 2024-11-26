@@ -39,12 +39,18 @@ class CartScreen extends StatelessWidget {
                 child: Image.asset(cartItem.image),
               ),
               title: Text("${cartItem.title}"),
+              subtitle: Text(
+                // "Quantity: ${cartItem.quantity}"
+                "Quantity: ${cartProvider.getQuantity(cartItem.id.toString())} \n"
+              ),
               trailing: IconButton(
                 icon: SvgPicture.asset(
                   'assets/icons/fi-rr-trash.svg',
                   colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                 ),
-                onPressed: () {}, 
+                onPressed: () {
+                  cartProvider.removeItems(cartItem.id);
+                }, 
               ),
             ),
           );

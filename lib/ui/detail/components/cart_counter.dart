@@ -1,68 +1,104 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:stellar_store/const.dart';
+import 'package:stellar_store/models/products.dart';
+import 'package:stellar_store/state-management/cart_provider.dart';
 
 class CartCounter extends StatefulWidget {
-  const CartCounter({super.key});
+  final Product product;
+
+  // Callback untuk mengirim quantity ke AddToCart
+
+  const CartCounter({super.key, required this.product});
 
   @override
   State<CartCounter> createState() => _CartCounterState();
 }
 
 class _CartCounterState extends State<CartCounter> {
-  int numOfItems = 1;
+
+  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
+
+    // Inisialisasi provider
+    final cartProvider = Provider.of<CartProvider>(context);
+
     return Row(
       children: <Widget>[
+
+        // Logika untuk decrement
         SizedBox(
+          width: 40,
+          height: 40,
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(18),
-                      bottomLeft: Radius.circular(18)),
-                ),
-                fixedSize: const Size(0, 30),
-                iconColor: textColor
-              ),
-            onPressed: () {
+              // minimumSize: const Size(25, 25),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadiusSizeMine / 2),
+              )
+            ),
+            onPressed: quantity > 1 
+            ? () {
               setState(() {
-                if (numOfItems > 1) {
-                  setState(() {
-                    numOfItems--;
-                  });
-                }
+                // Mengurangi jumlah secara lokal
+                quantity--;
+                cartProvider.updateQuantity(widget.product.id.toString(), quantity);
               });
-            },
-            child: const Icon(Icons.remove),
+              // Mengirim quantity terbaru
+              // cartProvider.removeItems(widget.product.id.toString());
+            }
+            // disable button jika kurang dari 1
+            : null,
+             child: SvgPicture.asset(
+              'assets/icons/fi-rr-minus-small.svg',
+              colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+            )
           ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
           child: Text(
-            numOfItems.toString().padLeft(2, "0"),
-            style: const TextStyle(fontSize: 18, color: textColor),
+            quantity.toString().padLeft(2, "0"),
+            style: const TextStyle(
+              fontSize: 18,
+              color: textColor
+            ),
           ),
         ),
-        OutlinedButton(
-          style: OutlinedButton.styleFrom(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(18),
-                bottomRight: Radius.circular(18)
-              ),
+        SizedBox(
+          width: 40,
+          height: 40,
+          child: OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              // minimumSize: const Size(25, 25),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadiusSizeMine / 2),
+              )
             ),
-            fixedSize: const Size(0, 30),
-            iconColor: textColor
-          ),  
-          onPressed: () {
-            setState(() {
-              numOfItems++;
-            });
-          },
-          child: const Icon(Icons.add),
-        ),
+            onPressed: () {
+              setState(() {
+                // Menambah jumlah secara lokal
+                quantity++;
+                cartProvider.updateQuantity(widget.product.id.toString(), quantity);
+              });
+              // Mengirim quantity terbaru
+              // cartProvider.addItem(
+              //   widget.product.id.toString(),
+              //   widget.product.title,
+              //   widget.product.price,
+              //   widget.product.image,
+              //   1
+              // );
+            }, 
+            child: SvgPicture.asset(
+              'assets/icons/fi-rr-plus-small.svg',
+              colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+            )
+          ),
+        )
       ],
     );
   }

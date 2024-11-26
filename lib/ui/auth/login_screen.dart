@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:stellar_store/const.dart';
-import 'package:stellar_store/ui/auth/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -24,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         height: double.infinity,
         decoration: BoxDecoration(
-          gradient: primaryGradientColor,
+          color: Colors.white
         ),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -33,14 +32,26 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Welcome Back!",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Welcome Back!",
+                      style: titleStyle
+                    ),
+                    const Text(
+                      "Please Sign In with your registered account.",
+                    ),
+                    const SizedBox(height: defaultPadding / 2),
+                    Container(
+                      height: 2,
+                      width: 50,
+                      color: primaryColor,
+                    )
+                  ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: defaultPadding * 2),
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
@@ -92,6 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ),
                   validator:(value) {
+                    // Melakukan pengecekan 2 kali
                     if (value == null || value.isEmpty) {
                       return "Passsword is reqired";
                     }
@@ -110,6 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     ),
                     onPressed: () {
+                      // melakukan validasi pada setiap FormField
                       if (_formKey.currentState!.validate()) {
         
                         showToast(context);

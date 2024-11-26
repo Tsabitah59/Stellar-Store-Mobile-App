@@ -35,6 +35,7 @@ class _MainScreenState extends State<MainScreen> {
   void _onItemTapped(int index) {  
     // Awal state
     setState(() {  
+      // Menyatakan bahwa initial action akan menampilkan objek yang berada pada index[0]
       _selectedIndex = index;  
     });  
   }  

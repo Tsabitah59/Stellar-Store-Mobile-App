@@ -5,43 +5,61 @@ class CartItem {
   final String title;
   final int price;
   final String image;
+  int quantity;
 
-  CartItem({required this.id, required this.title, required this.price, required this.image}); 
+  CartItem({required this.id, required this.title, required this.price, required this.image, this.quantity = 1}); 
 }
 
 // To knowing what's between OOP and FP (Functional Programming)
 class CartProvider with ChangeNotifier{
-  final Map<String, CartItem> _items = {};
+  Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items => _items;
-  int get itemCount => _items.length;
+
+  Map<String, int> _quantities = {};
+
+  // Method untuk mendapatkan jumlah produk tertentu
+  int getQuantity(String productId) => _quantities[productId] ?? 1;
 
   // Menghitung Total Harga
   int get totalPrice {
     return _items.values.fold(
       0, 
-      (sum, item) => sum + item.price
+      (sum, item) => sum + item.price * item.quantity
     );
   }
 
-  void addItem(String id, String title, int price, String image) {
+  void addItem(String id, String title, int price, String image, int quantity) {
+
+    // Menambahkan item ke keranjang dengan jumlah yang ditentukan cart_counter
     if (_items.containsKey(id)) {
-      return;
+      _items[id]!.quantity += quantity;
     } else {
-      _items.putIfAbsent(
-        id, 
-        () => CartItem(id: id, title: title, price: price, image: image)
-      );
+      _items[id] = CartItem(id: id, title: title, price: price, image: image, quantity: quantity);
     }
     notifyListeners();
   }
-  void removeItems(String id) {
-    _items.remove(id);
+
+    // Method untuk mengupdate jumlah
+  void updateQuantity(String productId, int quantity) {
+    _quantities[productId] = quantity;
     notifyListeners();
   }
 
-  void clearCart() {
-    _items.clear();
+  void removeItems(String id) {
+    // if (_items.containsKey(id)) {
+
+    //   // Mengurangi jumlah item
+    //   _items[id]!.quantity--;
+
+    //   // Jika jumlahnya 0, hapus dari keranjang
+    //   if (_items[id]!.quantity <= 0) {
+    //     _items.remove(id);
+    //   }
+    // }
+
+    _items.remove(id);
+
     notifyListeners();
   }
 }

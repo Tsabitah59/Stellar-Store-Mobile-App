@@ -37,12 +37,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   "Welcome!",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold
-                  ),
+                  style: titleStyle
                 ),
                 const SizedBox(height: 20),
                 TextFormField(

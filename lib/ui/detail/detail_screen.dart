@@ -16,6 +16,7 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int quantity = 1;
     // The way used for making the widget responsive, as the device size
     final Size size = MediaQuery.of(context).size;
 
@@ -80,12 +81,12 @@ class DetailScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const CartCounter(),
+                            CartCounter(product: product),
                             FavButton(product: product)
                           ],
                         ),
                         const SizedBox(height: defaultPadding),
-                        AddToCart(product: product)
+                        AddToCart(product: product, quantity: quantity,)
                       ],
                     ),
                   ),

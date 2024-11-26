@@ -6,9 +6,10 @@ import 'package:stellar_store/models/products.dart';
 import 'package:stellar_store/state-management/cart_provider.dart';
 
 class AddToCart extends StatelessWidget {
-  const AddToCart({super.key, required this.product});
+  const AddToCart({super.key, required this.product, required this.quantity});
 
   final Product product;
+  final int quantity;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,8 @@ class AddToCart extends StatelessWidget {
                   product.id.toString(),
                   product.title,
                   product.price,
-                  product.image
+                  product.image,
+                  quantity
                 );
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
