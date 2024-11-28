@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stellar_store/const.dart';
 
 // Implementasi konsep OOP (Inheritance)
 class ThemeProvider extends ChangeNotifier {
@@ -13,6 +14,9 @@ class ThemeProvider extends ChangeNotifier {
 
   // Getter (ditandai dengan 'get')
   bool get isDarkTheme => _isDarkTheme;
+
+  // Getter untuk primaryColor yang berubah berdasarkan tema
+  Color get primaryColor => _isDarkTheme ? primaryLightColor : primaryColor;
 
   // Fungsi asynchronous yang dijalankan di masa depan (ketika user klik)
   void toggleTheme(bool isDark) async {
