@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stellar_store/size_config.dart';
 
 // =============== COLORS ===============
 // Primary Color Definition
@@ -15,6 +16,20 @@ const primaryGradientColor = LinearGradient(
 const secondaryColor = Color(0xFF979797);
 const textColor = Color(0xFF757575);
 
+// =============== SHADOW ===============
+BoxShadow shadowMine = const BoxShadow(
+  color: Color(0x4C14D1FF),
+  blurRadius: 22.70,
+  offset: Offset(0, 14),
+  spreadRadius: -3,
+);
+
+BoxShadow shadowDieMine = const BoxShadow(
+  color: Color.fromARGB(24, 46, 107, 120),
+  blurRadius: 22.70,
+  offset: Offset(0, 14),
+  spreadRadius: -3,
+);
 // =============== SIZE & DURATION ===============
 // Animation Duration
 const animationDuration = Duration(milliseconds: 200);
@@ -26,6 +41,11 @@ const defaultPadding = 20.0;
 const borderRadiusSizeMine = 18.0;
 
 // =============== TEXT ===============
+TextStyle bigTitleStyle = TextStyle(
+  color: primaryColor, 
+  fontSize: getProportionateScreenWidth(28.0),
+  fontWeight: FontWeight.bold
+);
 // Title
 TextStyle titleStyle = const TextStyle(
   color: textColor,

@@ -66,6 +66,7 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
             ),
           ),
 
+          // Main Content
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -100,7 +101,6 @@ class _CatalougeScreenState extends State<CatalougeScreen> {
                           )
                         )
                       ),
-                    
                     ),
                   )
                 ]

@@ -21,23 +21,30 @@ class ProfilePageView extends StatelessWidget {
               SizedBox(
                 height: 50,
                 width: double.infinity,
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(borderRadiusSizeMine)
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [shadowDieMine]
+                  ),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(borderRadiusSizeMine)
+                      ),
+                      elevation: 0,
+                      shadowColor: Colors.transparent
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/settings');
+                    }, 
+                    child: Text(
+                      "Profile Settings",
+                      style: buttonColorStyle
                     )
                   ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/settings');
-                  }, 
-                  child: Text(
-                    "Profile Settings",
-                    style: buttonColorStyle
-                  )
                 ),
               ),
-              // Wallet()
+              Wallet()
             ],
           ),
         ),

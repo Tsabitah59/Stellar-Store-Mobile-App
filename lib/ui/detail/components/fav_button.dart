@@ -8,6 +8,7 @@ import 'package:stellar_store/state-management/wishlist_provider.dart';
 class FavButton extends StatelessWidget {
   const FavButton({super.key, required this.product});
 
+  // Inisialisasi variable
   final Product product;
 
   @override
@@ -15,8 +16,9 @@ class FavButton extends StatelessWidget {
     // Inisialisasi provider
     final wishlistProvider = Provider.of<WishlistProvider>(context, listen: true); 
 
-    // Memeriksa barang di wishlist
+    // Memeriksa barang di wishlist 
     final isFavorite = wishlistProvider.wishlistItem.containsKey(product.id.toString());
+    // Tipe data boolean
 
     return IconButton(
       onPressed: () {
@@ -29,7 +31,8 @@ class FavButton extends StatelessWidget {
             product.id.toString(), 
             product.title, 
             product.price,
-            product.image
+            product.image,
+            product.color
           );
         }
       },

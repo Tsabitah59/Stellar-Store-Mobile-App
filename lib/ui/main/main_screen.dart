@@ -69,6 +69,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        centerTitle: false,
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

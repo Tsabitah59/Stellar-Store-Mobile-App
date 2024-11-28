@@ -20,136 +20,176 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.white
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Welcome Back!",
-                      style: titleStyle
-                    ),
-                    const Text(
-                      "Please Sign In with your registered account.",
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Container(
-                      height: 2,
-                      width: 50,
-                      color: primaryColor,
-                    )
-                  ],
+      body: Padding(
+        padding: const EdgeInsets.all(defaultPadding),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Image
+              ClipRRect(
+                borderRadius: BorderRadius.circular(borderRadiusSizeMine * 1.5),
+                child: Image.asset(
+                  'assets/illustration/logo.png',
+                  width: 100,
                 ),
-                const SizedBox(height: defaultPadding * 2),
-                TextFormField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: "Your Email",
-                    labelStyle: const TextStyle(
-                      color: secondaryColor
-                    ),
-                    enabledBorder: enableOutlineInputBorderMine,
-                    focusedBorder: focusedOutlineInputBorderMine,
-                    errorBorder: errorOutlineInputBorderMine,
-                    focusedErrorBorder: focusErrorOutlineInputBorderMine
+              ),
+              const SizedBox(height: defaultPadding * 2),
+
+              // Text Sambutan
+              Column(                  
+                children: [
+                  Text(
+                    "Welcome Back!",
+                    style: bigTitleStyle
                   ),
-                  // If else buat login.
-                  validator: (value) {
-                    //  Jika gak ada value maka muncul pesan. 
-                    if (value == null || value.isEmpty) {
-                      return "Email is required!";
-                    }
-                    if (!value.endsWith('@gmail.com')) {
-                      return "Please fill with valid domain";
-                    }
-                  // Tapi jika ada, maka dia gak return apa-apa. Paling ke homepage :v 
-                    return null;
-                  },
+                  const Text(
+                    "Sign In with your registered account.",
+                  ),
+                  const SizedBox(height: defaultPadding / 2),
+                  Container(
+                    height: 2,
+                    width: 50,
+                    color: primaryColor,
+                  )
+                ],
+              ),
+              const SizedBox(height: defaultPadding * 2),
+
+              // Email
+              TextFormField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  icon: SvgPicture.asset(
+                    'assets/icons/fi-rr-envelope.svg',
+                    colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                  ),
+                  labelText: "Email",
+                  labelStyle: const TextStyle(
+                    color: secondaryColor
+                  ),
+                  enabledBorder: enableOutlineInputBorderMine,
+                  focusedBorder: focusedOutlineInputBorderMine,
+                  errorBorder: errorOutlineInputBorderMine,
+                  focusedErrorBorder: focusErrorOutlineInputBorderMine
                 ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: _passwordController,
-                  obscureText: !_passwordVisible,
-                  decoration: InputDecoration(
-                    labelText: "Your Password",
-                    labelStyle: const TextStyle(
-                      color: secondaryColor
-                    ),
-                    enabledBorder: enableOutlineInputBorderMine,
-                    focusedBorder: focusedOutlineInputBorderMine,
-                    errorBorder: errorOutlineInputBorderMine,
-                    focusedErrorBorder: focusErrorOutlineInputBorderMine,
-                    suffixIcon: IconButton(
+                // If else buat login.
+                validator: (value) {
+                  //  Jika gak ada value maka muncul pesan. 
+                  if (value == null || value.isEmpty) {
+                    return "Email is required!";
+                  }
+                  if (!value.endsWith('@gmail.com')) {
+                    return "Please fill with valid domain";
+                  }
+                // Tapi jika ada, maka dia gak return apa-apa. Paling ke homepage :v 
+                  return null;
+                },
+              ),
+              const SizedBox(height: 20),
+
+              // Password
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: !_passwordVisible,
+                    decoration: InputDecoration(
                       icon: SvgPicture.asset(
-                        _passwordVisible ? 'assets/icons/fi-rr-eye.svg' : 'assets/icons/fi-rr-eye-crossed.svg',
-                        colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+                        'assets/icons/fi-rr-key.svg',
+                        colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                       ),
-                      onPressed: () {
-                       setState(() {
-                         _passwordVisible = !_passwordVisible;
-                       });
-                      } 
-                    )
-                  ),
-                  validator:(value) {
-                    // Melakukan pengecekan 2 kali
-                    if (value == null || value.isEmpty) {
-                      return "Passsword is reqired";
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: defaultPadding * 2),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(borderRadiusSizeMine)
+                      labelText: "Your Password",
+                      labelStyle: const TextStyle(
+                        color: secondaryColor
+                      ),
+                      enabledBorder: enableOutlineInputBorderMine,
+                      focusedBorder: focusedOutlineInputBorderMine,
+                      errorBorder: errorOutlineInputBorderMine,
+                      focusedErrorBorder: focusErrorOutlineInputBorderMine,
+                      suffixIcon: IconButton(
+                        icon: SvgPicture.asset(
+                          _passwordVisible ? 'assets/icons/fi-rr-eye.svg' : 'assets/icons/fi-rr-eye-crossed.svg',
+                          colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                        ),
+                        onPressed: () {
+                         setState(() {
+                           _passwordVisible = !_passwordVisible;
+                         });
+                        } 
                       )
                     ),
-                    onPressed: () {
-                      // melakukan validasi pada setiap FormField
-                      if (_formKey.currentState!.validate()) {
-        
-                        showToast(context);
-        
-                        Navigator.pushReplacementNamed(context, '/main');
+                    validator:(value) {
+                      // Melakukan pengecekan 2 kali
+                      if (value == null || value.isEmpty) {
+                        return "Passsword is reqired";
                       }
-                    }, 
-                    child: Text(
-                      "Sign In",
-                      style: buttonColorBgStyle
+                      return null;
+                    },
+                  ),
+                  TextButton(
+                    onPressed: () {}, 
+                    child: const Text(
+                      "Forgot Password?",
+                      textAlign:TextAlign.end,
+                      style: TextStyle(
+                        color: primaryColor,
+                        fontWeight: FontWeight.bold
+                      ),
                     )
                   ),
+                  const SizedBox(height: defaultPadding * 2),
+                ],
+              ),
+
+              // Input Button
+              Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  boxShadow: [shadowMine]
                 ),
-                const SizedBox(height: 20),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/register');
-                  }, 
-                  child: const Text(
-                    "Not have account? Sign up",
-                    style: TextStyle(
-                      color: textColor
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: primaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(borderRadiusSizeMine)
                     ),
+                    elevation: 0,
+                    shadowColor: Colors.transparent
+                  ),
+                  onPressed: () {
+                    // melakukan validasi pada setiap FormField
+                    if (_formKey.currentState!.validate()) {
+      
+                      showToast(context);
+      
+                      Navigator.pushReplacementNamed(context, '/main');
+                    }
+                  }, 
+                  child: Text(
+                    "Sign In",
+                    style: buttonColorBgStyle
                   )
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Switch
+              TextButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/register');
+                }, 
+                child: const Text(
+                  "Not have account? Sign up",
+                  style: TextStyle(
+                    color: textColor
+                  ),
                 )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       )
@@ -162,36 +202,28 @@ void showToast(BuildContext context) {
   fToast.init(context);  
 
   Widget toast = Padding(
-    padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+    padding: const EdgeInsets.symmetric(vertical: 0),
     child: Container(  
       width: double.infinity,  
       decoration: BoxDecoration(  
-        border: Border.all(color: primaryColor),
         borderRadius: BorderRadius.circular(borderRadiusSizeMine),  
         color: Colors.white,  
+        boxShadow: [shadowDieMine]
       ),  
       padding: const EdgeInsets.all(defaultPadding),  
-      child: const Column(
-        children: [
-          Text(
-            "Success!",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold
-            ),
-          ),
-          SizedBox(height: defaultPadding / 2),
-          Text(  
-            "Welcome back! Nice to see you again.",  
-            textAlign: TextAlign.center,  
-            style: TextStyle(
-              color: textColor,
-              fontSize: 14
-            ),  
-          ),
-        ],
-      ),  
-    ),
+      child: ListTile(
+        leading: Image.asset(
+          'assets/illustration/checked.png'
+        ),
+        title: Text(
+          "Sign In Success!",
+          style: titleStyle
+        ),
+        subtitle: const Text(
+          "Nice to see you again.",  
+        ),
+      )
+    )
   );  
 
   fToast.showToast(  

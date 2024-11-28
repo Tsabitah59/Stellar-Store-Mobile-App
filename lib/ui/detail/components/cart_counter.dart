@@ -25,19 +25,20 @@ class _CartCounterState extends State<CartCounter> {
 
     // Inisialisasi provider
     final cartProvider = Provider.of<CartProvider>(context);
+    final updateQuantityYey = cartProvider.updateQuantity(widget.product.id.toString(), quantity);
+
 
     return Row(
       children: <Widget>[
 
         // Logika untuk decrement
         SizedBox(
-          width: 40,
-          height: 40,
+          // width: 40,
+          // height: 40,
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-              // minimumSize: const Size(25, 25),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(borderRadiusSizeMine / 2),
+                borderRadius: BorderRadius.circular(borderRadiusSizeMine),
               )
             ),
             onPressed: quantity > 1 
@@ -45,6 +46,7 @@ class _CartCounterState extends State<CartCounter> {
               setState(() {
                 // Mengurangi jumlah secara lokal
                 quantity--;
+                // updateQuantityYey;
                 cartProvider.updateQuantity(widget.product.id.toString(), quantity);
               });
               // Mengirim quantity terbaru
@@ -69,21 +71,24 @@ class _CartCounterState extends State<CartCounter> {
           ),
         ),
         SizedBox(
-          width: 40,
-          height: 40,
+          // width: 40,
+          // height: 40,
           child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-              // minimumSize: const Size(25, 25),
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(borderRadiusSizeMine / 2),
+                borderRadius: BorderRadius.circular(borderRadiusSizeMine),
               )
             ),
             onPressed: () {
               setState(() {
                 // Menambah jumlah secara lokal
                 quantity++;
-                cartProvider.updateQuantity(widget.product.id.toString(), quantity);
+                // updateQuantityYey;
               });
+              /**
+               * Pendekalrasian informasi yang akan dikirim ke addtoCart
+               * Starting point quantitas yang dibawa ke tombol keranjang ke halaman cart
+               */
               // Mengirim quantity terbaru
               // cartProvider.addItem(
               //   widget.product.id.toString(),

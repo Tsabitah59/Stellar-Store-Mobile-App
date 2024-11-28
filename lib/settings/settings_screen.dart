@@ -26,8 +26,11 @@ class SettingsScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
+            // Proses utama yang jalan
             onPressed: () {
+              
               themeProvider.toggleTheme(!themeProvider.isDarkTheme);
+              // Bang operator digunakan untuk negasi (di depan) dan nullable (di belakang)
             },
 
             icon: SvgPicture.asset(

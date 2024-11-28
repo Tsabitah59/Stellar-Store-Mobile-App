@@ -23,6 +23,9 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: product.color,
         appBar: AppBar(
+        leading: BackButton(
+          color: Colors.white,
+        ),
         backgroundColor: product.color,
         elevation: 0,
         actions: [
@@ -32,7 +35,7 @@ class DetailScreen extends StatelessWidget {
             }, 
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-heart.svg',
-              colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             ),    
           ),
 
@@ -43,7 +46,7 @@ class DetailScreen extends StatelessWidget {
             
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-shopping-cart.svg',
-              colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             )
           )
         ],
@@ -86,7 +89,7 @@ class DetailScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: defaultPadding),
-                        AddToCart(product: product, quantity: quantity,)
+                        // AddToCart(product: product, quantity: quantity,)
                       ],
                     ),
                   ),
@@ -99,10 +102,10 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
             )
-            
           ],
         ),
       ),
+      bottomNavigationBar: AddToCart(product: product, quantity: quantity),
     );
   }
 }

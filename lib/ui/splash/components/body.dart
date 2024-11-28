@@ -21,19 +21,19 @@ class _BodyState extends State<Body> {
   List<Map<String, String>> splashData = [
     {
       "title": "Welcome There",
-      "image": "assets/images/splash1.png",
+      "image": "assets/illustration/splash1.png",
       "text":
           "A wide selection of unique gifts, from fresh \n flowers to custom items. You'll like all.",
     },
     {
       "title": "Super Fast",
-      "image": "assets/images/splash2.png",
+      "image": "assets/illustration/splash2.png",
       "text":
           "Enjoy great features like gift recommendations, \n free gift wrapping, and fast delivery.",
     },
     {
       "title": "A Lot of Discount",
-      "image": "assets/images/splash3.png",
+      "image": "assets/illustration/splash3.png",
       "text":
           "Don't miss our interesting promotions! \n Get discounts up to 50% for your first purchase.",
     },
@@ -106,13 +106,20 @@ class _BodyState extends State<Body> {
                     ),
                   ),
                   Expanded(
-                    child: SizedBox(
+                    child: Container(
                       height: 50,
+                      decoration: BoxDecoration(
+                        boxShadow: [shadowMine]
+                      ),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,
+                          shadowColor: Colors.transparent, // Warna shadow  
+                          elevation: 0, // Tinggi bayangan  
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(borderRadiusSizeMine))),
+                            borderRadius: BorderRadius.circular(borderRadiusSizeMine),
+                          ),                          
+                        ),
                           onPressed: () {
                             if (currentPage == splashData.length - 1) {
                               Navigator.push(

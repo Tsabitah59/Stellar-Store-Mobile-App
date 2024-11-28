@@ -54,6 +54,14 @@ class _StellarStoreState extends State<StellarStore> {
               scaffoldBackgroundColor: themeProvider.isDarkTheme ? const Color(0xFF141218) : const Color(0xFFFEF7FF),
               fontFamily: 'Muli',
               visualDensity: VisualDensity.adaptivePlatformDensity,
+              
+              appBarTheme: const AppBarTheme(
+                iconTheme: IconThemeData(
+                  color: textColor
+                ),
+                centerTitle: true
+              ),
+
               textTheme: const TextTheme(
                 bodyMedium: TextStyle(color: textColor),
                 bodySmall: TextStyle(color: textColor)
@@ -74,7 +82,7 @@ class _StellarStoreState extends State<StellarStore> {
               '/profile' : (context) => const ProfilePageView(),
 
               // App Bar Place
-              '/cart' : (context) => const CartScreen(),
+              '/cart' : (context) => CartScreen(),
             
               // Settings
               '/settings' : (context) => const SettingsScreen(),

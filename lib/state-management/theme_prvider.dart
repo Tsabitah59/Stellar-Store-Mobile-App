@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// Implementasi konsep OOP (Inheritance)
 class ThemeProvider extends ChangeNotifier {
-  // Setter
+  // Setter: variable yang bersifat private
   bool _isDarkTheme = false;
-
+ 
+  // loadtheme akan dijalankan oleh ThemeProvider. Triggernya toggleTheme 
   ThemeProvider() {
     _loadTheme();
   }
@@ -12,6 +14,7 @@ class ThemeProvider extends ChangeNotifier {
   // Getter (ditandai dengan 'get')
   bool get isDarkTheme => _isDarkTheme;
 
+  // Fungsi asynchronous yang dijalankan di masa depan (ketika user klik)
   void toggleTheme(bool isDark) async {
     // mengelola konfigurasi perubahan 
     SharedPreferences prefs = await SharedPreferences.getInstance();

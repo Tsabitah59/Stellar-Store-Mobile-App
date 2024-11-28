@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/size_config.dart';
 
@@ -23,21 +24,20 @@ class SplashContent extends StatelessWidget {
           style: TextStyle(
             fontSize: getProportionateScreenWidth(24.0),
             fontWeight: FontWeight.bold,
-            color: Colors.grey
+            color: secondaryColor
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(defaultPadding * 2),
-          child: Image.asset(image,
-          fit: BoxFit.contain,)
+          child: Image.asset(
+            image,
+            fit: BoxFit.contain,
+          )
+          
         ),
         Text(
           title,
-          style: TextStyle(
-              color: primaryColor, 
-              fontSize: getProportionateScreenWidth(36.0),
-              fontWeight: FontWeight.bold
-          ),
+          style: bigTitleStyle
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: defaultPadding),

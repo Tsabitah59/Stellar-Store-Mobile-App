@@ -4,59 +4,63 @@ import 'package:stellar_store/const.dart';
 class Wallet extends StatelessWidget {
   Wallet({super.key});
 
-  List<Map<String, dynamic>> walletList = [
+  final List<Map<String, dynamic>> walletList = [
     {
-      'icon': Icons.insert_chart_outlined_outlined,
-      'text' : "Money"
+      'icon': Icons.attach_money,
+      'text': "Money",
     },
     {
-      'icon': Icons.insert_chart_outlined_outlined,
-      'text' : "Money"
+      'icon': Icons.credit_card,
+      'text': "Card",
     },
     {
-      'icon': Icons.insert_chart_outlined_outlined,
-      'text' : "Money"
+      'icon': Icons.savings,
+      'text': "Savings",
     },
     {
-      'icon': Icons.insert_chart_outlined_outlined,
-      'text' : "Money"
+      'icon': Icons.account_balance_wallet,
+      'text': "Wallet",
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
-    return Row(
-      children: [
-        ListView.builder(
-          itemBuilder: (context, index) => _customWalletCard(
+    return SizedBox(
+      height: 200,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal, // Ubah arah ListView jadi horizontal
+        itemCount: walletList.length,
+        itemBuilder: (context, index) {
+          return _customWalletCard(
             walletList[index]['icon'],
-            walletList[index]['text']
-          ),
-        )
-      ]
+            walletList[index]['text'],
+          );
+        },
+      ),
     );
   }
 
-  Expanded _customWalletCard(IconData icon, String text) {
-    return Expanded(
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(defaultPadding / 2),
-            child: Expanded(
-              child: Column(
-                children: [
-                  Icon(
-                    icon,
-                    size: 50,
-                  ),
-                  Text(text)
-                ],
-              )
-            ),
+  Widget _customWalletCard(IconData icon, String text) {
+    return Card(
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      color: Colors.transparent,
+      margin: const EdgeInsets.all(defaultPadding),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            icon,
+            size: 30,
+            color: primaryColor,
           ),
-        ),
-      );
+          const SizedBox(height: defaultPadding / 2),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
   }
 }

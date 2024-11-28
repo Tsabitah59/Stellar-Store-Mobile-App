@@ -1,31 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/models/products.dart';
-import 'package:stellar_store/ui/detail/components/fav_button.dart';
+import 'package:stellar_store/state-management/wishlist_provider.dart';
 
-class ItemCard extends StatelessWidget {
-  const ItemCard({super.key, required this.product, required this.press});
+class WishlistItemCard extends StatelessWidget {
 
-  final Product product;
-  final VoidCallback press;
+  final WishlistItem wishlistItem;
+  final VoidCallback onRemove;
+
+  const WishlistItemCard({super.key, required this.wishlistItem, required this.onRemove});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector( // Buat deteksi jari
-      onTap: press, // Keluar pilihan kalo ditap
+    final wishlistProvider = Provider.of<WishlistProvider>(context);
+
+    return GestureDetector(
       child: Column(
         children: [
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(defaultPadding),
               decoration: BoxDecoration(
-                color: product.color,
+                color: wishlistItem.color,
                 borderRadius: BorderRadius.circular(borderRadiusSizeMine),
               ),
               child: Hero(
                 // Memungkinkan trsansisi animasi halus, antar halaman pada widgets yang sama
-                tag: "${product.id}",
-                child: Image.asset(product.image),
+                tag: "${wishlistItem.id}",
+                child: Image.asset(wishlistItem.image),
               ),
             ),
           ),
@@ -38,17 +42,23 @@ class ItemCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top:10),
                     child: Text(
-                      product.title,
+                      wishlistItem.title,
                       style: subTitleStyle
                     ),
                   ),
                   Text(
-                    "IDR ${product.price}k"
+                    "IDR ${wishlistItem.price}k"
                   ),
                 ],
               ),
 
-              FavButton(product: product)
+              IconButton(
+                onPressed: onRemove, 
+                icon: SvgPicture.asset(
+                  'assets/icons/fi-sr-heart.svg',
+                  colorFilter: ColorFilter.mode(Colors.pinkAccent, BlendMode.srcIn),
+                ),
+              )
             ],
           ),
         ],

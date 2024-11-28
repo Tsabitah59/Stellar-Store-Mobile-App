@@ -5,8 +5,9 @@ class WishlistItem {
   final String title;
   final int price;
   final String image;
+  final Color color;
 
-  WishlistItem({required this.id, required this.title, required this.price, required this.image});
+  WishlistItem({required this.id, required this.title, required this.price, required this.image, required this.color});
 }
 
 class WishlistProvider with ChangeNotifier{
@@ -16,13 +17,14 @@ class WishlistProvider with ChangeNotifier{
 
   int get count => wishlistItem.length;
 
-  void addItemToFav(String id, String title, int price, String image) {
+  void addItemToFav(String id, String title, int price, String image, Color color) {
     if (_wishlistItems.containsKey(id)) {
       // Jika ada item yang ditambahkan
+      return;
     } else {
       _wishlistItems.putIfAbsent(
         id, 
-        () => WishlistItem(id: id, title: title, price: price, image: image)
+        () => WishlistItem(id: id, title: title, price: price, image: image, color: color)
       );
     }
     notifyListeners();

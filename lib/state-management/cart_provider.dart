@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stellar_store/models/products.dart';
 
 class CartItem {
   final String id;
@@ -7,7 +8,14 @@ class CartItem {
   final String image;
   int quantity;
 
-  CartItem({required this.id, required this.title, required this.price, required this.image, this.quantity = 1}); 
+  CartItem({
+    required this.id, 
+    required this.title, 
+    required this.price, 
+    required this.image, 
+    // Default quantity
+    this.quantity = 1
+  }); 
 }
 
 // To knowing what's between OOP and FP (Functional Programming)
@@ -23,8 +31,10 @@ class CartProvider with ChangeNotifier{
 
   // Menghitung Total Harga
   int get totalPrice {
+    // Inisialisasi status sebelum operasi matematika
     return _items.values.fold(
       0, 
+      // sum adalah parameter yang dibuat sendiri. Untuk menandakan ada pejumlahan disana. Bisa tidak digunakan tapi itu wajib
       (sum, item) => sum + item.price * item.quantity
     );
   }
@@ -33,6 +43,7 @@ class CartProvider with ChangeNotifier{
 
     // Menambahkan item ke keranjang dengan jumlah yang ditentukan cart_counter
     if (_items.containsKey(id)) {
+      // Menambah jumlah barang
       _items[id]!.quantity += quantity;
     } else {
       _items[id] = CartItem(id: id, title: title, price: price, image: image, quantity: quantity);
@@ -47,16 +58,6 @@ class CartProvider with ChangeNotifier{
   }
 
   void removeItems(String id) {
-    // if (_items.containsKey(id)) {
-
-    //   // Mengurangi jumlah item
-    //   _items[id]!.quantity--;
-
-    //   // Jika jumlahnya 0, hapus dari keranjang
-    //   if (_items[id]!.quantity <= 0) {
-    //     _items.remove(id);
-    //   }
-    // }
 
     _items.remove(id);
 
