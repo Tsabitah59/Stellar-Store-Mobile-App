@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stellar_store/const.dart';
 
 class Wallet extends StatelessWidget {
@@ -6,20 +7,19 @@ class Wallet extends StatelessWidget {
 
   final List<Map<String, dynamic>> walletList = [
     {
-      'icon': Icons.attach_money,
-      'text': "Money",
+      'icon': 'assets/icons/fi-rr-diamond.svg',
+      'text': "StellarJade",
+      'title': "StellarJade",
     },
     {
-      'icon': Icons.credit_card,
-      'text': "Card",
+      'icon': '/assets/icons/fi-rr-star.svg',
+      'text': "OnericShard",
+      'title': "OnericShard",
     },
     {
-      'icon': Icons.savings,
-      'text': "Savings",
-    },
-    {
-      'icon': Icons.account_balance_wallet,
-      'text': "Wallet",
+      'icon': 'assets/icons/fi-rr-ticket.svg',
+      'text': "Voucher",
+      'title': "Voucher",
     },
   ];
 
@@ -40,7 +40,7 @@ class Wallet extends StatelessWidget {
     );
   }
 
-  Widget _customWalletCard(IconData icon, String text) {
+  Widget _customWalletCard(String icon, String text) {
     return Card(
       elevation: 0,
       shadowColor: Colors.transparent,
@@ -49,10 +49,14 @@ class Wallet extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
+          SvgPicture.asset(
             icon,
-            size: 30,
-            color: primaryColor,
+            colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+          ),
+          const SizedBox(height: defaultPadding / 2),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: defaultPadding / 2),
           Text(

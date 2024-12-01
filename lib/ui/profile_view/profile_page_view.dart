@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stellar_store/const.dart';
-import 'package:stellar_store/ui/edit_profile/profile_page.dart';
 import 'package:stellar_store/ui/profile_view/components/profile_pic_view.dart';
 import 'package:stellar_store/ui/profile_view/components/wallet.dart';
-import 'package:stellar_store/settings/settings_screen.dart';
 
 class ProfilePageView extends StatelessWidget {
   const ProfilePageView({super.key});

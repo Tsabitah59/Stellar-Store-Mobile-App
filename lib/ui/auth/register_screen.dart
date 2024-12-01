@@ -246,7 +246,7 @@ void showToast(BuildContext context, String name) {
           style: titleStyle
         ),
         subtitle: Text(
-          "Welcome $name! to StellarStore!",  
+          "Welcome $name to StellarStore!",  
         ),
       )
     )

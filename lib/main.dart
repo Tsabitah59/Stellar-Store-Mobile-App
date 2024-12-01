@@ -54,7 +54,6 @@ class _StellarStoreState extends State<StellarStore> {
               scaffoldBackgroundColor: themeProvider.isDarkTheme ? const Color(0xFF141218) : const Color(0xFFFEF7FF),
               fontFamily: 'Muli',
               visualDensity: VisualDensity.adaptivePlatformDensity,
-              // primaryColor: themeProvider.primaryColor,
               
               appBarTheme: const AppBarTheme(
                 iconTheme: IconThemeData(
