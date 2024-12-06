@@ -63,7 +63,7 @@ class _CategoriesState extends State<Categories> {
                   ),
                   borderRadius: BorderRadius.circular(36),
                 ),
-                color: selectedIndex == index ? primaryColor : Colors.white
+                color: selectedIndex == index ? primaryColor : Colors.transparent
               ),
               child: Text(
                 categories[index],

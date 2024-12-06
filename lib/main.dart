@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stellar_store/const.dart';
 import 'package:stellar_store/state-management/cart_provider.dart';
 import 'package:stellar_store/state-management/theme_prvider.dart';
@@ -17,11 +16,14 @@ import 'package:stellar_store/settings/settings_screen.dart';
 import 'package:stellar_store/ui/splash/splash_screen.dart';
 import 'package:stellar_store/ui/wishlist/wishlist_page.dart';
 
+late ThemeProvider globalThemeProvider;
+
 void main(){
+  globalThemeProvider = ThemeProvider();
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider<ThemeProvider>(create: (_) => globalThemeProvider),
         ChangeNotifierProvider(create: (_) => CartProvider()),
         ChangeNotifierProvider(create: (_) => WishlistProvider()),
       ],
@@ -29,6 +31,8 @@ void main(){
     )
   );
 }
+
+
 
 // (_) adalah dummy parameter
 
@@ -55,16 +59,16 @@ class _StellarStoreState extends State<StellarStore> {
               fontFamily: 'Muli',
               visualDensity: VisualDensity.adaptivePlatformDensity,
               
-              appBarTheme: const AppBarTheme(
+              appBarTheme: AppBarTheme(
                 iconTheme: IconThemeData(
-                  color: textColor
+                  color: themeProvider.isDarkTheme ? Colors.white : textColor
                 ),
                 centerTitle: true
               ),
 
-              textTheme: const TextTheme(
-                bodyMedium: TextStyle(color: textColor),
-                bodySmall: TextStyle(color: textColor)
+              textTheme: TextTheme(
+                bodyMedium: TextStyle(color: themeProvider.isDarkTheme ? Colors.white : textColor),
+                bodySmall: TextStyle(color: themeProvider.isDarkTheme ? Colors.white : textColor)
               )
             ),
             

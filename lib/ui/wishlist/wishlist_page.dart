@@ -28,11 +28,11 @@ class WishlistPage extends StatelessWidget {
                     child: TextFormField(
                       decoration: InputDecoration(
                         hintText: "Search Your Wishlist",
-                        suffixIcon: const Icon(
+                        suffixIcon: Icon(
                           Icons.search,
                           color: secondaryColor,
                         ),
-                        hintStyle: const TextStyle(color: secondaryColor),
+                        hintStyle: TextStyle(color: secondaryColor),
                         enabledBorder:enableOutlineInputBorderMine,
                         focusedBorder: focusedOutlineInputBorderMine
                         

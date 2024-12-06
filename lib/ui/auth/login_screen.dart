@@ -63,10 +63,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 decoration: InputDecoration(
                   icon: SvgPicture.asset(
                     'assets/icons/fi-rr-envelope.svg',
-                    colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                   ),
                   labelText: "Email",
-                  labelStyle: const TextStyle(
+                  labelStyle: TextStyle(
                     color: secondaryColor
                   ),
                   enabledBorder: enableOutlineInputBorderMine,
@@ -99,10 +99,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       icon: SvgPicture.asset(
                         'assets/icons/fi-rr-key.svg',
-                        colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                        colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                       ),
                       labelText: "Your Password",
-                      labelStyle: const TextStyle(
+                      labelStyle: TextStyle(
                         color: secondaryColor
                       ),
                       enabledBorder: enableOutlineInputBorderMine,
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       suffixIcon: IconButton(
                         icon: SvgPicture.asset(
                           _passwordVisible ? 'assets/icons/fi-rr-eye.svg' : 'assets/icons/fi-rr-eye-crossed.svg',
-                          colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                          colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                         ),
                         onPressed: () {
                          setState(() {
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   TextButton(
                     onPressed: () {}, 
-                    child: const Text(
+                    child: Text(
                       "Forgot Password?",
                       textAlign:TextAlign.end,
                       style: TextStyle(
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/register');
                 }, 
-                child: const Text(
+                child: Text(
                   "Not have account? Sign up",
                   style: TextStyle(
                     color: textColor

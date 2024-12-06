@@ -45,13 +45,13 @@ class ColorAndSize extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "Size",
                 style: TextStyle(color: textColor),
               ),
               RichText(
                 text: TextSpan(
-                  style: const TextStyle(color: textColor),
+                  style: TextStyle(color: textColor),
                   children: [
                     TextSpan(
                       text: "${product.size} cm",

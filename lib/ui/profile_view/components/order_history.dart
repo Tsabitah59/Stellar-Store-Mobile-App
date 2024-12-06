@@ -2,24 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stellar_store/const.dart';
 
-class Wallet extends StatelessWidget {
-  Wallet({super.key});
+class OrderHistory extends StatelessWidget {
+  OrderHistory({super.key});
 
   final List<Map<String, dynamic>> walletList = [
     {
-      'icon': 'assets/icons/fi-rr-diamond.svg',
-      'text': "StellarJade",
-      'amount': "IDR 1140k",
+      'icon': 'assets/icons/fi-rr-money.svg',
+      'text': "To Pay",
+      'amount': "2",
+    },
+    {
+      'icon': 'assets/icons/fi-rr-box.svg',
+      'text': "To Ship",
+      'amount': "5",
+    },
+    {
+      'icon': 'assets/icons/fi-rr-truck-side.svg',
+      'text': "To Recieve",
+      'amount': "2",
     },
     {
       'icon': 'assets/icons/fi-rr-star.svg',
-      'text': "OnericShard",
-      'amount': "IDR 20",
-    },
-    {
-      'icon': 'assets/icons/fi-rr-ticket.svg',
-      'text': "Voucher",
-      'amount': "100",
+      'text': "To Rate",
+      'amount': "10",
     },
   ];
 
@@ -29,9 +34,20 @@ class Wallet extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: defaultPadding * 2),
-        Text(
-          "My Wallet",
-          style: titleStyle,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "My Purchases",
+              style: titleStyle,
+            ),
+
+            Text(
+              'View History',
+              style: TextStyle(color: primaryColor),
+            )
+          ],
         ),
         SizedBox(
           height: 200,
@@ -77,7 +93,7 @@ class Wallet extends StatelessWidget {
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Text(
-            amount,
+            '$amount Orders',
             style: TextStyle(color: primaryColor),
           ),
         ],

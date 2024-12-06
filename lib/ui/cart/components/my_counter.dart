@@ -35,12 +35,12 @@ class _MyCounterState extends State<MyCounter> {
           }, 
           icon: SvgPicture.asset(
             'assets/icons/fi-rr-minus-small.svg',
-             colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+             colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
           )
         ),
         Text(
           "${cartProvider.getQuantity(widget.productId.toString())}",
-          style: const TextStyle(
+          style: TextStyle(
             color: textColor
           ),
         ),
@@ -50,7 +50,7 @@ class _MyCounterState extends State<MyCounter> {
           }, 
           icon: SvgPicture.asset(
             'assets/icons/fi-rr-plus-small.svg',
-            colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
           )
         )
       ],

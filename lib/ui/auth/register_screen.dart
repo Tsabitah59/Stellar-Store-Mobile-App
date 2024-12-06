@@ -63,10 +63,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: InputDecoration(
                 icon: SvgPicture.asset(
                     'assets/icons/fi-rr-user.svg',
-                    colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                   ),
                 labelText: "Name",
-                labelStyle: const TextStyle(color: secondaryColor),
+                labelStyle: TextStyle(color: secondaryColor),
                 enabledBorder: enableOutlineInputBorderMine,
                 focusedBorder: focusedOutlineInputBorderMine,
                 errorBorder: errorOutlineInputBorderMine,
@@ -87,10 +87,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: InputDecoration(
                   icon: SvgPicture.asset(
                     'assets/icons/fi-rr-phone-call.svg',
-                    colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                   ),
                   labelText: "Phone Number",
-                  labelStyle: const TextStyle(color: secondaryColor),
+                  labelStyle: TextStyle(color: secondaryColor),
                   enabledBorder: enableOutlineInputBorderMine,
                   focusedBorder: focusedOutlineInputBorderMine,
                   errorBorder: errorOutlineInputBorderMine,
@@ -113,10 +113,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: InputDecoration(
                   icon: SvgPicture.asset(
                     'assets/icons/fi-rr-envelope.svg',
-                    colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                   ),
                   labelText: "Email",
-                  labelStyle: const TextStyle(color: secondaryColor),
+                  labelStyle: TextStyle(color: secondaryColor),
                   enabledBorder: enableOutlineInputBorderMine,
                   focusedBorder: focusedOutlineInputBorderMine,
                   errorBorder: errorOutlineInputBorderMine,
@@ -143,10 +143,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               decoration: InputDecoration(
                   icon: SvgPicture.asset(
                     'assets/icons/fi-rr-key.svg',
-                    colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+                    colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
                   ),
                   labelText: "Password",
-                  labelStyle: const TextStyle(color: secondaryColor),
+                  labelStyle: TextStyle(color: secondaryColor),
                   enabledBorder: enableOutlineInputBorderMine,
                   focusedBorder: focusedOutlineInputBorderMine,
                   errorBorder: errorOutlineInputBorderMine,
@@ -157,7 +157,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ? 'assets/icons/fi-rr-eye.svg'
                           : 'assets/icons/fi-rr-eye-crossed.svg',
                       colorFilter:
-                          const ColorFilter.mode(textColor, BlendMode.srcIn),
+                          ColorFilter.mode(textColor, BlendMode.srcIn),
                     ),
                     onPressed: () {
                       setState(() {
@@ -212,7 +212,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
-                child: const Text(
+                child: Text(
                   "Already have account? Sign in",
                   style: TextStyle(color: textColor),
                 ))

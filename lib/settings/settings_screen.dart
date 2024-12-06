@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:stellar_store/const.dart';
+import 'package:stellar_store/main.dart';
 import 'package:stellar_store/settings/components/account_settings.dart';
 import 'package:stellar_store/settings/components/app_settings.dart';
 import 'package:stellar_store/state-management/theme_prvider.dart';
@@ -15,7 +16,7 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Account & Settings',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -29,12 +30,12 @@ class SettingsScreen extends StatelessWidget {
             // Proses utama yang jalan
             onPressed: () {
               
-              themeProvider.toggleTheme(!themeProvider.isDarkTheme);
+              globalThemeProvider.toggleTheme(!themeProvider.isDarkTheme);
               // Bang operator digunakan untuk negasi (di depan) dan nullable (di belakang)
             },
 
             icon: SvgPicture.asset(
-              themeProvider.isDarkTheme ? 'assets/icons/fi-rr-moon.svg' : 'assets/icons/fi-rr-sun.svg',
+              globalThemeProvider.isDarkTheme ? 'assets/icons/fi-rr-moon.svg' : 'assets/icons/fi-rr-sun.svg',
               colorFilter: ColorFilter.mode(themeProvider.isDarkTheme ? Colors.yellow : Colors.orange, BlendMode.srcIn),
 
             ),

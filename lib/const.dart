@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:stellar_store/main.dart';
 import 'package:stellar_store/size_config.dart';
 
+
 // =============== COLORS ===============
-// Primary Color Definition
-const primaryColor = Color(0xFF00CDFF);
+// Primary Color Definition 
+Color get primaryColor => globalThemeProvider.isDarkTheme ? primaryLightColor : Color(0xFF00CDFF);
 const primaryLightColor = Color(0xFF14D1FF);
 const primaryGradientColor = LinearGradient(
   colors: [
@@ -13,8 +15,8 @@ const primaryGradientColor = LinearGradient(
 );
 
 // Secondary Color Definition
-const secondaryColor = Color(0xFF979797);
-const textColor = Color(0xFF757575);
+Color get secondaryColor => globalThemeProvider.isDarkTheme ? Color(0xFF979797) : Color(0xFF979797);
+Color get textColor => globalThemeProvider.isDarkTheme ? Colors.white : const Color(0xFF757575);
 
 // =============== SHADOW ===============
 BoxShadow shadowMine = const BoxShadow(
@@ -47,7 +49,7 @@ TextStyle bigTitleStyle = TextStyle(
   fontWeight: FontWeight.bold
 );
 // Title
-TextStyle titleStyle = const TextStyle(
+TextStyle titleStyle = TextStyle(
   color: textColor,
   fontSize: 24,
   fontWeight: FontWeight.bold,
@@ -59,7 +61,7 @@ TextStyle titleStyleBgColor = const TextStyle(
 );
 
 // Subtitle
-TextStyle subTitleStyle = const TextStyle(
+TextStyle subTitleStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 14,
   color: textColor
@@ -78,7 +80,7 @@ TextStyle buttonColorBgStyle = const TextStyle(
   fontWeight: FontWeight.w700
 );
 
-TextStyle buttonColorStyle = const TextStyle(
+TextStyle buttonColorStyle = TextStyle(
   color: textColor,
   fontSize: 16,
   fontWeight: FontWeight.w700
@@ -96,7 +98,7 @@ OutlineInputBorder enableOutlineInputBorderMine = OutlineInputBorder(
 
 // Focus
 OutlineInputBorder focusedOutlineInputBorderMine = OutlineInputBorder(
-  borderSide: const BorderSide(
+  borderSide: BorderSide(
     width: 1.0,
     color: primaryColor
   ),

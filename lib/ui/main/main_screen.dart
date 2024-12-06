@@ -70,10 +70,10 @@ class _MainScreenState extends State<MainScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: false,
-        title: const Column(
+        title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Location",
               style: TextStyle(
                 color: Colors.grey,
@@ -95,7 +95,7 @@ class _MainScreenState extends State<MainScreen> {
             onPressed: () {}, 
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-bell.svg',
-              colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
             )
           ),
           IconButton(
@@ -104,7 +104,7 @@ class _MainScreenState extends State<MainScreen> {
             }, 
             icon: SvgPicture.asset(
               'assets/icons/fi-rr-shopping-cart.svg',
-              colorFilter: const ColorFilter.mode(secondaryColor, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(secondaryColor, BlendMode.srcIn),
             )
           )
         ],

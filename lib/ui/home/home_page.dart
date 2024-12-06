@@ -25,11 +25,11 @@ class HomePage extends StatelessWidget {
                     child: TextFormField(
                       decoration: InputDecoration(
                         hintText: "Search Anything",
-                        suffixIcon: const Icon(
+                        suffixIcon: Icon(
                           Icons.search,
                           color: secondaryColor,
                         ),
-                        hintStyle: const TextStyle(color: secondaryColor),
+                        hintStyle: TextStyle(color: secondaryColor),
                         enabledBorder:enableOutlineInputBorderMine,
                         focusedBorder: focusedOutlineInputBorderMine
                         

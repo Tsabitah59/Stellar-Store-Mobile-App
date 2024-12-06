@@ -68,15 +68,15 @@ class _AccountSettingsState extends State<AccountSettings> {
           contentPadding: EdgeInsets.symmetric(horizontal: 0, vertical: defaultPadding / 2),
           leading: SvgPicture.asset(
             icon,
-            colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
           ),
           title: Text(
             text,
-            style: const TextStyle(color: textColor),
+            style: TextStyle(color: textColor),
           ),
           trailing: SvgPicture.asset(
             'assets/icons/fi-rr-angle-small-right.svg',
-            colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+            colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
           ),
           onTap: () {
             Navigator.pushNamed(context, '/edit-profile');

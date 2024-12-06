@@ -56,7 +56,7 @@ class _CartCounterState extends State<CartCounter> {
             : null,
              child: SvgPicture.asset(
               'assets/icons/fi-rr-minus-small.svg',
-              colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
             )
           ),
         ),
@@ -64,7 +64,7 @@ class _CartCounterState extends State<CartCounter> {
           padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
           child: Text(
             quantity.toString().padLeft(2, "0"),
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               color: textColor
             ),
@@ -100,7 +100,7 @@ class _CartCounterState extends State<CartCounter> {
             }, 
             child: SvgPicture.asset(
               'assets/icons/fi-rr-plus-small.svg',
-              colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(textColor, BlendMode.srcIn),
             )
           ),
         )

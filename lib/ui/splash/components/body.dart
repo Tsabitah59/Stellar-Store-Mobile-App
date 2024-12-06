@@ -101,7 +101,7 @@ class _BodyState extends State<Body> {
                       }, 
                       icon: SvgPicture.asset(
                         'assets/icons/fi-rr-angle-small-left.svg',
-                        colorFilter: const ColorFilter.mode(primaryColor, BlendMode.srcIn)
+                        colorFilter: ColorFilter.mode(primaryColor, BlendMode.srcIn)
                       )
                     ),
                   ),

@@ -17,6 +17,7 @@ class ThemeProvider extends ChangeNotifier {
 
   // Getter untuk primaryColor yang berubah berdasarkan tema
   Color get primaryColor => _isDarkTheme ? primaryLightColor : primaryColor;
+  Color get textcolor => _isDarkTheme ? Colors.white : textcolor;
 
   // Fungsi asynchronous yang dijalankan di masa depan (ketika user klik)
   void toggleTheme(bool isDark) async {

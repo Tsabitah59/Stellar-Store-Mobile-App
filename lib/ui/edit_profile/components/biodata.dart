@@ -18,7 +18,7 @@ class Biodata extends StatelessWidget {
                     initialValue: "Helatra",
                     style: subTitleStyle,
                     decoration: InputDecoration(
-                      label: const Text(
+                      label: Text(
                         "Full Name",
                         style: TextStyle(color: textColor),
                       ),
@@ -33,7 +33,7 @@ class Biodata extends StatelessWidget {
                     initialValue: "helatra_25",
                     style: subTitleStyle,
                     decoration: InputDecoration(
-                      label: const Text(
+                      label: Text(
                         "Username",
                         style: TextStyle(color: textColor),
                       ),
@@ -48,7 +48,7 @@ class Biodata extends StatelessWidget {
                     initialValue: "helatra@gmail.com",
                     style: subTitleStyle,
                     decoration: InputDecoration(
-                      label: const Text(
+                      label: Text(
                         "Email",
                         style: TextStyle(color: textColor),
                       ),
@@ -63,7 +63,7 @@ class Biodata extends StatelessWidget {
                     initialValue: "+62 8123-4567-809",
                     style: subTitleStyle,
                     decoration: InputDecoration(
-                      label: const Text(
+                      label: Text(
                         "Phone Number",
                         style: TextStyle(color: textColor),
                       ),
